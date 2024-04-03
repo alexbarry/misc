@@ -12,6 +12,9 @@ mkdir -p out/obj
 
 set -eux
 
+FLAGS=-g
+#FLAGS=--profiling-funcs
+
 # It seems that none of emscripten/clang/gcc raise an error for this, at least on my system.
 # But the others just seem to pick a main function and run it without issue, but
 # browsers/electron have issues with the generated wasm/js.
@@ -32,7 +35,7 @@ LIBS=
 for lua_src in third_party/lua/*.c; do
 	obj_out_path=out/obj/$(basename ${lua_src%.*}.o)
 	echo "Compiling $lua_src to object $obj_out_path"
-	${CC} -v \
+	${CC} -v ${FLAGS} \
 		'-Ithird_party/lua' \
 		$lua_src \
 		-c \
@@ -49,7 +52,7 @@ ${AR} rcsv out/libmy_lib.a out/obj/*.o
 echo "Building out/my_exec.js from:"
 echo "    * out/libmylib.a (includes lua's main function) and"
 echo "    * test.c (also defines a main function)"
-${CC} \
+${CC} ${FLAGS} \
 	-v \
 	-Wall \
 	-Werror \
