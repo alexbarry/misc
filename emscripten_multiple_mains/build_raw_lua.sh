@@ -10,11 +10,14 @@ cd ../
 mkdir -p out
 mkdir -p out/obj
 
+set -eux
+
 # It seems that none of emscripten/clang/gcc raise an error for this, at least on my system.
 # But the others just seem to pick a main function and run it without issue, but
 # browsers/electron have issues with the generated wasm/js.
 CC=emcc
 AR=emar
+LIBS=
 
 #CC=clang
 #AR=llvm-ar
@@ -29,7 +32,7 @@ AR=emar
 for lua_src in third_party/lua/*.c; do
 	obj_out_path=out/obj/$(basename ${lua_src%.*}.o)
 	echo "Compiling $lua_src to object $obj_out_path"
-	${CC} \
+	${CC} -v \
 		'-Ithird_party/lua' \
 		$lua_src \
 		-c \
@@ -38,7 +41,7 @@ done
 
 # Build a static library out of the objects
 echo "Building out/libmylib.a from objects in out/obj/*.o"
-${AR} rcs out/libmy_lib.a out/obj/*.o
+${AR} rcsv out/libmy_lib.a out/obj/*.o
 
 # Build a *.js and *.wasm final output,
 # linking with libmy_lib.a created earlier (which defines a main function), and
@@ -47,6 +50,7 @@ echo "Building out/my_exec.js from:"
 echo "    * out/libmylib.a (includes lua's main function) and"
 echo "    * test.c (also defines a main function)"
 ${CC} \
+	-v \
 	-Wall \
 	-Werror \
 	-Wl,--undefined,error \

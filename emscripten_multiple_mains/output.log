@@ -1,0 +1,816 @@
++ CC=emcc
++ AR=emar
++ LIBS=
++ for lua_src in third_party/lua/*.c
+++ basename third_party/lua/lapi.o
++ obj_out_path=out/obj/lapi.o
++ echo 'Compiling third_party/lua/lapi.c to object out/obj/lapi.o'
+Compiling third_party/lua/lapi.c to object out/obj/lapi.o
++ emcc -v -Ithird_party/lua third_party/lua/lapi.c -c -o out/obj/lapi.o
+ /opt/emscripten-llvm/bin/clang -target wasm32-unknown-emscripten -fignore-exceptions -fvisibility=default -mllvm -combiner-global-alias-analysis=false -mllvm -enable-emscripten-sjlj -mllvm -disable-lsr --sysroot=/home/alex/.emscripten_cache/sysroot -DEMSCRIPTEN -Werror=implicit-function-declaration -Xclang -iwithsysroot/include/fakesdl -Xclang -iwithsysroot/include/compat -v -Ithird_party/lua -c third_party/lua/lapi.c -o out/obj/lapi.o
+clang version 19.0.0git (/startdir/llvm-project 6c7805d5d186a6d1263f90b8033ad85e2d2633d7)
+Target: wasm32-unknown-emscripten
+Thread model: posix
+InstalledDir: /opt/emscripten-llvm/bin
+ (in-process)
+ "/opt/emscripten-llvm/bin/clang-19" -cc1 -triple wasm32-unknown-emscripten -emit-obj -mrelax-all -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name lapi.c -mrelocation-model static -mframe-pointer=none -ffp-contract=on -fno-rounding-math -mconstructor-aliases -target-cpu generic -debugger-tuning=gdb -fdebug-compilation-dir=/home/alex/code/misc/misc/emscripten_multiple_mains -v -fcoverage-compilation-dir=/home/alex/code/misc/misc/emscripten_multiple_mains -resource-dir /opt/emscripten-llvm/lib/clang/19 -D EMSCRIPTEN -I third_party/lua -isysroot /home/alex/.emscripten_cache/sysroot -internal-isystem /opt/emscripten-llvm/lib/clang/19/include -internal-isystem /home/alex/.emscripten_cache/sysroot/include/wasm32-emscripten -internal-isystem /home/alex/.emscripten_cache/sysroot/include -Werror=implicit-function-declaration -ferror-limit 19 -fvisibility=default -fgnuc-version=4.2.1 -fskip-odr-check-in-gmf -fignore-exceptions -iwithsysroot/include/fakesdl -iwithsysroot/include/compat -mllvm -combiner-global-alias-analysis=false -mllvm -enable-emscripten-sjlj -mllvm -disable-lsr -o out/obj/lapi.o -x c third_party/lua/lapi.c
+clang -cc1 version 19.0.0git based upon LLVM 19.0.0git default target x86_64-unknown-linux-gnu
+ignoring nonexistent directory "/home/alex/.emscripten_cache/sysroot/include/wasm32-emscripten"
+#include "..." search starts here:
+#include <...> search starts here:
+ third_party/lua
+ /home/alex/.emscripten_cache/sysroot/include/fakesdl
+ /home/alex/.emscripten_cache/sysroot/include/compat
+ /opt/emscripten-llvm/lib/clang/19/include
+ /home/alex/.emscripten_cache/sysroot/include
+End of search list.
++ for lua_src in third_party/lua/*.c
+++ basename third_party/lua/lauxlib.o
++ obj_out_path=out/obj/lauxlib.o
++ echo 'Compiling third_party/lua/lauxlib.c to object out/obj/lauxlib.o'
+Compiling third_party/lua/lauxlib.c to object out/obj/lauxlib.o
++ emcc -v -Ithird_party/lua third_party/lua/lauxlib.c -c -o out/obj/lauxlib.o
+ /opt/emscripten-llvm/bin/clang -target wasm32-unknown-emscripten -fignore-exceptions -fvisibility=default -mllvm -combiner-global-alias-analysis=false -mllvm -enable-emscripten-sjlj -mllvm -disable-lsr --sysroot=/home/alex/.emscripten_cache/sysroot -DEMSCRIPTEN -Werror=implicit-function-declaration -Xclang -iwithsysroot/include/fakesdl -Xclang -iwithsysroot/include/compat -v -Ithird_party/lua -c third_party/lua/lauxlib.c -o out/obj/lauxlib.o
+clang version 19.0.0git (/startdir/llvm-project 6c7805d5d186a6d1263f90b8033ad85e2d2633d7)
+Target: wasm32-unknown-emscripten
+Thread model: posix
+InstalledDir: /opt/emscripten-llvm/bin
+ (in-process)
+ "/opt/emscripten-llvm/bin/clang-19" -cc1 -triple wasm32-unknown-emscripten -emit-obj -mrelax-all -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name lauxlib.c -mrelocation-model static -mframe-pointer=none -ffp-contract=on -fno-rounding-math -mconstructor-aliases -target-cpu generic -debugger-tuning=gdb -fdebug-compilation-dir=/home/alex/code/misc/misc/emscripten_multiple_mains -v -fcoverage-compilation-dir=/home/alex/code/misc/misc/emscripten_multiple_mains -resource-dir /opt/emscripten-llvm/lib/clang/19 -D EMSCRIPTEN -I third_party/lua -isysroot /home/alex/.emscripten_cache/sysroot -internal-isystem /opt/emscripten-llvm/lib/clang/19/include -internal-isystem /home/alex/.emscripten_cache/sysroot/include/wasm32-emscripten -internal-isystem /home/alex/.emscripten_cache/sysroot/include -Werror=implicit-function-declaration -ferror-limit 19 -fvisibility=default -fgnuc-version=4.2.1 -fskip-odr-check-in-gmf -fignore-exceptions -iwithsysroot/include/fakesdl -iwithsysroot/include/compat -mllvm -combiner-global-alias-analysis=false -mllvm -enable-emscripten-sjlj -mllvm -disable-lsr -o out/obj/lauxlib.o -x c third_party/lua/lauxlib.c
+clang -cc1 version 19.0.0git based upon LLVM 19.0.0git default target x86_64-unknown-linux-gnu
+ignoring nonexistent directory "/home/alex/.emscripten_cache/sysroot/include/wasm32-emscripten"
+#include "..." search starts here:
+#include <...> search starts here:
+ third_party/lua
+ /home/alex/.emscripten_cache/sysroot/include/fakesdl
+ /home/alex/.emscripten_cache/sysroot/include/compat
+ /opt/emscripten-llvm/lib/clang/19/include
+ /home/alex/.emscripten_cache/sysroot/include
+End of search list.
++ for lua_src in third_party/lua/*.c
+++ basename third_party/lua/lbaselib.o
++ obj_out_path=out/obj/lbaselib.o
++ echo 'Compiling third_party/lua/lbaselib.c to object out/obj/lbaselib.o'
+Compiling third_party/lua/lbaselib.c to object out/obj/lbaselib.o
++ emcc -v -Ithird_party/lua third_party/lua/lbaselib.c -c -o out/obj/lbaselib.o
+ /opt/emscripten-llvm/bin/clang -target wasm32-unknown-emscripten -fignore-exceptions -fvisibility=default -mllvm -combiner-global-alias-analysis=false -mllvm -enable-emscripten-sjlj -mllvm -disable-lsr --sysroot=/home/alex/.emscripten_cache/sysroot -DEMSCRIPTEN -Werror=implicit-function-declaration -Xclang -iwithsysroot/include/fakesdl -Xclang -iwithsysroot/include/compat -v -Ithird_party/lua -c third_party/lua/lbaselib.c -o out/obj/lbaselib.o
+clang version 19.0.0git (/startdir/llvm-project 6c7805d5d186a6d1263f90b8033ad85e2d2633d7)
+Target: wasm32-unknown-emscripten
+Thread model: posix
+InstalledDir: /opt/emscripten-llvm/bin
+ (in-process)
+ "/opt/emscripten-llvm/bin/clang-19" -cc1 -triple wasm32-unknown-emscripten -emit-obj -mrelax-all -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name lbaselib.c -mrelocation-model static -mframe-pointer=none -ffp-contract=on -fno-rounding-math -mconstructor-aliases -target-cpu generic -debugger-tuning=gdb -fdebug-compilation-dir=/home/alex/code/misc/misc/emscripten_multiple_mains -v -fcoverage-compilation-dir=/home/alex/code/misc/misc/emscripten_multiple_mains -resource-dir /opt/emscripten-llvm/lib/clang/19 -D EMSCRIPTEN -I third_party/lua -isysroot /home/alex/.emscripten_cache/sysroot -internal-isystem /opt/emscripten-llvm/lib/clang/19/include -internal-isystem /home/alex/.emscripten_cache/sysroot/include/wasm32-emscripten -internal-isystem /home/alex/.emscripten_cache/sysroot/include -Werror=implicit-function-declaration -ferror-limit 19 -fvisibility=default -fgnuc-version=4.2.1 -fskip-odr-check-in-gmf -fignore-exceptions -iwithsysroot/include/fakesdl -iwithsysroot/include/compat -mllvm -combiner-global-alias-analysis=false -mllvm -enable-emscripten-sjlj -mllvm -disable-lsr -o out/obj/lbaselib.o -x c third_party/lua/lbaselib.c
+clang -cc1 version 19.0.0git based upon LLVM 19.0.0git default target x86_64-unknown-linux-gnu
+ignoring nonexistent directory "/home/alex/.emscripten_cache/sysroot/include/wasm32-emscripten"
+#include "..." search starts here:
+#include <...> search starts here:
+ third_party/lua
+ /home/alex/.emscripten_cache/sysroot/include/fakesdl
+ /home/alex/.emscripten_cache/sysroot/include/compat
+ /opt/emscripten-llvm/lib/clang/19/include
+ /home/alex/.emscripten_cache/sysroot/include
+End of search list.
++ for lua_src in third_party/lua/*.c
+++ basename third_party/lua/lcode.o
++ obj_out_path=out/obj/lcode.o
++ echo 'Compiling third_party/lua/lcode.c to object out/obj/lcode.o'
+Compiling third_party/lua/lcode.c to object out/obj/lcode.o
++ emcc -v -Ithird_party/lua third_party/lua/lcode.c -c -o out/obj/lcode.o
+ /opt/emscripten-llvm/bin/clang -target wasm32-unknown-emscripten -fignore-exceptions -fvisibility=default -mllvm -combiner-global-alias-analysis=false -mllvm -enable-emscripten-sjlj -mllvm -disable-lsr --sysroot=/home/alex/.emscripten_cache/sysroot -DEMSCRIPTEN -Werror=implicit-function-declaration -Xclang -iwithsysroot/include/fakesdl -Xclang -iwithsysroot/include/compat -v -Ithird_party/lua -c third_party/lua/lcode.c -o out/obj/lcode.o
+clang version 19.0.0git (/startdir/llvm-project 6c7805d5d186a6d1263f90b8033ad85e2d2633d7)
+Target: wasm32-unknown-emscripten
+Thread model: posix
+InstalledDir: /opt/emscripten-llvm/bin
+ (in-process)
+ "/opt/emscripten-llvm/bin/clang-19" -cc1 -triple wasm32-unknown-emscripten -emit-obj -mrelax-all -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name lcode.c -mrelocation-model static -mframe-pointer=none -ffp-contract=on -fno-rounding-math -mconstructor-aliases -target-cpu generic -debugger-tuning=gdb -fdebug-compilation-dir=/home/alex/code/misc/misc/emscripten_multiple_mains -v -fcoverage-compilation-dir=/home/alex/code/misc/misc/emscripten_multiple_mains -resource-dir /opt/emscripten-llvm/lib/clang/19 -D EMSCRIPTEN -I third_party/lua -isysroot /home/alex/.emscripten_cache/sysroot -internal-isystem /opt/emscripten-llvm/lib/clang/19/include -internal-isystem /home/alex/.emscripten_cache/sysroot/include/wasm32-emscripten -internal-isystem /home/alex/.emscripten_cache/sysroot/include -Werror=implicit-function-declaration -ferror-limit 19 -fvisibility=default -fgnuc-version=4.2.1 -fskip-odr-check-in-gmf -fignore-exceptions -iwithsysroot/include/fakesdl -iwithsysroot/include/compat -mllvm -combiner-global-alias-analysis=false -mllvm -enable-emscripten-sjlj -mllvm -disable-lsr -o out/obj/lcode.o -x c third_party/lua/lcode.c
+clang -cc1 version 19.0.0git based upon LLVM 19.0.0git default target x86_64-unknown-linux-gnu
+ignoring nonexistent directory "/home/alex/.emscripten_cache/sysroot/include/wasm32-emscripten"
+#include "..." search starts here:
+#include <...> search starts here:
+ third_party/lua
+ /home/alex/.emscripten_cache/sysroot/include/fakesdl
+ /home/alex/.emscripten_cache/sysroot/include/compat
+ /opt/emscripten-llvm/lib/clang/19/include
+ /home/alex/.emscripten_cache/sysroot/include
+End of search list.
++ for lua_src in third_party/lua/*.c
+++ basename third_party/lua/lcorolib.o
++ obj_out_path=out/obj/lcorolib.o
++ echo 'Compiling third_party/lua/lcorolib.c to object out/obj/lcorolib.o'
+Compiling third_party/lua/lcorolib.c to object out/obj/lcorolib.o
++ emcc -v -Ithird_party/lua third_party/lua/lcorolib.c -c -o out/obj/lcorolib.o
+ /opt/emscripten-llvm/bin/clang -target wasm32-unknown-emscripten -fignore-exceptions -fvisibility=default -mllvm -combiner-global-alias-analysis=false -mllvm -enable-emscripten-sjlj -mllvm -disable-lsr --sysroot=/home/alex/.emscripten_cache/sysroot -DEMSCRIPTEN -Werror=implicit-function-declaration -Xclang -iwithsysroot/include/fakesdl -Xclang -iwithsysroot/include/compat -v -Ithird_party/lua -c third_party/lua/lcorolib.c -o out/obj/lcorolib.o
+clang version 19.0.0git (/startdir/llvm-project 6c7805d5d186a6d1263f90b8033ad85e2d2633d7)
+Target: wasm32-unknown-emscripten
+Thread model: posix
+InstalledDir: /opt/emscripten-llvm/bin
+ (in-process)
+ "/opt/emscripten-llvm/bin/clang-19" -cc1 -triple wasm32-unknown-emscripten -emit-obj -mrelax-all -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name lcorolib.c -mrelocation-model static -mframe-pointer=none -ffp-contract=on -fno-rounding-math -mconstructor-aliases -target-cpu generic -debugger-tuning=gdb -fdebug-compilation-dir=/home/alex/code/misc/misc/emscripten_multiple_mains -v -fcoverage-compilation-dir=/home/alex/code/misc/misc/emscripten_multiple_mains -resource-dir /opt/emscripten-llvm/lib/clang/19 -D EMSCRIPTEN -I third_party/lua -isysroot /home/alex/.emscripten_cache/sysroot -internal-isystem /opt/emscripten-llvm/lib/clang/19/include -internal-isystem /home/alex/.emscripten_cache/sysroot/include/wasm32-emscripten -internal-isystem /home/alex/.emscripten_cache/sysroot/include -Werror=implicit-function-declaration -ferror-limit 19 -fvisibility=default -fgnuc-version=4.2.1 -fskip-odr-check-in-gmf -fignore-exceptions -iwithsysroot/include/fakesdl -iwithsysroot/include/compat -mllvm -combiner-global-alias-analysis=false -mllvm -enable-emscripten-sjlj -mllvm -disable-lsr -o out/obj/lcorolib.o -x c third_party/lua/lcorolib.c
+clang -cc1 version 19.0.0git based upon LLVM 19.0.0git default target x86_64-unknown-linux-gnu
+ignoring nonexistent directory "/home/alex/.emscripten_cache/sysroot/include/wasm32-emscripten"
+#include "..." search starts here:
+#include <...> search starts here:
+ third_party/lua
+ /home/alex/.emscripten_cache/sysroot/include/fakesdl
+ /home/alex/.emscripten_cache/sysroot/include/compat
+ /opt/emscripten-llvm/lib/clang/19/include
+ /home/alex/.emscripten_cache/sysroot/include
+End of search list.
++ for lua_src in third_party/lua/*.c
+++ basename third_party/lua/lctype.o
++ obj_out_path=out/obj/lctype.o
++ echo 'Compiling third_party/lua/lctype.c to object out/obj/lctype.o'
+Compiling third_party/lua/lctype.c to object out/obj/lctype.o
++ emcc -v -Ithird_party/lua third_party/lua/lctype.c -c -o out/obj/lctype.o
+ /opt/emscripten-llvm/bin/clang -target wasm32-unknown-emscripten -fignore-exceptions -fvisibility=default -mllvm -combiner-global-alias-analysis=false -mllvm -enable-emscripten-sjlj -mllvm -disable-lsr --sysroot=/home/alex/.emscripten_cache/sysroot -DEMSCRIPTEN -Werror=implicit-function-declaration -Xclang -iwithsysroot/include/fakesdl -Xclang -iwithsysroot/include/compat -v -Ithird_party/lua -c third_party/lua/lctype.c -o out/obj/lctype.o
+clang version 19.0.0git (/startdir/llvm-project 6c7805d5d186a6d1263f90b8033ad85e2d2633d7)
+Target: wasm32-unknown-emscripten
+Thread model: posix
+InstalledDir: /opt/emscripten-llvm/bin
+ (in-process)
+ "/opt/emscripten-llvm/bin/clang-19" -cc1 -triple wasm32-unknown-emscripten -emit-obj -mrelax-all -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name lctype.c -mrelocation-model static -mframe-pointer=none -ffp-contract=on -fno-rounding-math -mconstructor-aliases -target-cpu generic -debugger-tuning=gdb -fdebug-compilation-dir=/home/alex/code/misc/misc/emscripten_multiple_mains -v -fcoverage-compilation-dir=/home/alex/code/misc/misc/emscripten_multiple_mains -resource-dir /opt/emscripten-llvm/lib/clang/19 -D EMSCRIPTEN -I third_party/lua -isysroot /home/alex/.emscripten_cache/sysroot -internal-isystem /opt/emscripten-llvm/lib/clang/19/include -internal-isystem /home/alex/.emscripten_cache/sysroot/include/wasm32-emscripten -internal-isystem /home/alex/.emscripten_cache/sysroot/include -Werror=implicit-function-declaration -ferror-limit 19 -fvisibility=default -fgnuc-version=4.2.1 -fskip-odr-check-in-gmf -fignore-exceptions -iwithsysroot/include/fakesdl -iwithsysroot/include/compat -mllvm -combiner-global-alias-analysis=false -mllvm -enable-emscripten-sjlj -mllvm -disable-lsr -o out/obj/lctype.o -x c third_party/lua/lctype.c
+clang -cc1 version 19.0.0git based upon LLVM 19.0.0git default target x86_64-unknown-linux-gnu
+ignoring nonexistent directory "/home/alex/.emscripten_cache/sysroot/include/wasm32-emscripten"
+#include "..." search starts here:
+#include <...> search starts here:
+ third_party/lua
+ /home/alex/.emscripten_cache/sysroot/include/fakesdl
+ /home/alex/.emscripten_cache/sysroot/include/compat
+ /opt/emscripten-llvm/lib/clang/19/include
+ /home/alex/.emscripten_cache/sysroot/include
+End of search list.
++ for lua_src in third_party/lua/*.c
+++ basename third_party/lua/ldblib.o
++ obj_out_path=out/obj/ldblib.o
++ echo 'Compiling third_party/lua/ldblib.c to object out/obj/ldblib.o'
+Compiling third_party/lua/ldblib.c to object out/obj/ldblib.o
++ emcc -v -Ithird_party/lua third_party/lua/ldblib.c -c -o out/obj/ldblib.o
+ /opt/emscripten-llvm/bin/clang -target wasm32-unknown-emscripten -fignore-exceptions -fvisibility=default -mllvm -combiner-global-alias-analysis=false -mllvm -enable-emscripten-sjlj -mllvm -disable-lsr --sysroot=/home/alex/.emscripten_cache/sysroot -DEMSCRIPTEN -Werror=implicit-function-declaration -Xclang -iwithsysroot/include/fakesdl -Xclang -iwithsysroot/include/compat -v -Ithird_party/lua -c third_party/lua/ldblib.c -o out/obj/ldblib.o
+clang version 19.0.0git (/startdir/llvm-project 6c7805d5d186a6d1263f90b8033ad85e2d2633d7)
+Target: wasm32-unknown-emscripten
+Thread model: posix
+InstalledDir: /opt/emscripten-llvm/bin
+ (in-process)
+ "/opt/emscripten-llvm/bin/clang-19" -cc1 -triple wasm32-unknown-emscripten -emit-obj -mrelax-all -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name ldblib.c -mrelocation-model static -mframe-pointer=none -ffp-contract=on -fno-rounding-math -mconstructor-aliases -target-cpu generic -debugger-tuning=gdb -fdebug-compilation-dir=/home/alex/code/misc/misc/emscripten_multiple_mains -v -fcoverage-compilation-dir=/home/alex/code/misc/misc/emscripten_multiple_mains -resource-dir /opt/emscripten-llvm/lib/clang/19 -D EMSCRIPTEN -I third_party/lua -isysroot /home/alex/.emscripten_cache/sysroot -internal-isystem /opt/emscripten-llvm/lib/clang/19/include -internal-isystem /home/alex/.emscripten_cache/sysroot/include/wasm32-emscripten -internal-isystem /home/alex/.emscripten_cache/sysroot/include -Werror=implicit-function-declaration -ferror-limit 19 -fvisibility=default -fgnuc-version=4.2.1 -fskip-odr-check-in-gmf -fignore-exceptions -iwithsysroot/include/fakesdl -iwithsysroot/include/compat -mllvm -combiner-global-alias-analysis=false -mllvm -enable-emscripten-sjlj -mllvm -disable-lsr -o out/obj/ldblib.o -x c third_party/lua/ldblib.c
+clang -cc1 version 19.0.0git based upon LLVM 19.0.0git default target x86_64-unknown-linux-gnu
+ignoring nonexistent directory "/home/alex/.emscripten_cache/sysroot/include/wasm32-emscripten"
+#include "..." search starts here:
+#include <...> search starts here:
+ third_party/lua
+ /home/alex/.emscripten_cache/sysroot/include/fakesdl
+ /home/alex/.emscripten_cache/sysroot/include/compat
+ /opt/emscripten-llvm/lib/clang/19/include
+ /home/alex/.emscripten_cache/sysroot/include
+End of search list.
++ for lua_src in third_party/lua/*.c
+++ basename third_party/lua/ldebug.o
++ obj_out_path=out/obj/ldebug.o
++ echo 'Compiling third_party/lua/ldebug.c to object out/obj/ldebug.o'
+Compiling third_party/lua/ldebug.c to object out/obj/ldebug.o
++ emcc -v -Ithird_party/lua third_party/lua/ldebug.c -c -o out/obj/ldebug.o
+ /opt/emscripten-llvm/bin/clang -target wasm32-unknown-emscripten -fignore-exceptions -fvisibility=default -mllvm -combiner-global-alias-analysis=false -mllvm -enable-emscripten-sjlj -mllvm -disable-lsr --sysroot=/home/alex/.emscripten_cache/sysroot -DEMSCRIPTEN -Werror=implicit-function-declaration -Xclang -iwithsysroot/include/fakesdl -Xclang -iwithsysroot/include/compat -v -Ithird_party/lua -c third_party/lua/ldebug.c -o out/obj/ldebug.o
+clang version 19.0.0git (/startdir/llvm-project 6c7805d5d186a6d1263f90b8033ad85e2d2633d7)
+Target: wasm32-unknown-emscripten
+Thread model: posix
+InstalledDir: /opt/emscripten-llvm/bin
+ (in-process)
+ "/opt/emscripten-llvm/bin/clang-19" -cc1 -triple wasm32-unknown-emscripten -emit-obj -mrelax-all -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name ldebug.c -mrelocation-model static -mframe-pointer=none -ffp-contract=on -fno-rounding-math -mconstructor-aliases -target-cpu generic -debugger-tuning=gdb -fdebug-compilation-dir=/home/alex/code/misc/misc/emscripten_multiple_mains -v -fcoverage-compilation-dir=/home/alex/code/misc/misc/emscripten_multiple_mains -resource-dir /opt/emscripten-llvm/lib/clang/19 -D EMSCRIPTEN -I third_party/lua -isysroot /home/alex/.emscripten_cache/sysroot -internal-isystem /opt/emscripten-llvm/lib/clang/19/include -internal-isystem /home/alex/.emscripten_cache/sysroot/include/wasm32-emscripten -internal-isystem /home/alex/.emscripten_cache/sysroot/include -Werror=implicit-function-declaration -ferror-limit 19 -fvisibility=default -fgnuc-version=4.2.1 -fskip-odr-check-in-gmf -fignore-exceptions -iwithsysroot/include/fakesdl -iwithsysroot/include/compat -mllvm -combiner-global-alias-analysis=false -mllvm -enable-emscripten-sjlj -mllvm -disable-lsr -o out/obj/ldebug.o -x c third_party/lua/ldebug.c
+clang -cc1 version 19.0.0git based upon LLVM 19.0.0git default target x86_64-unknown-linux-gnu
+ignoring nonexistent directory "/home/alex/.emscripten_cache/sysroot/include/wasm32-emscripten"
+#include "..." search starts here:
+#include <...> search starts here:
+ third_party/lua
+ /home/alex/.emscripten_cache/sysroot/include/fakesdl
+ /home/alex/.emscripten_cache/sysroot/include/compat
+ /opt/emscripten-llvm/lib/clang/19/include
+ /home/alex/.emscripten_cache/sysroot/include
+End of search list.
++ for lua_src in third_party/lua/*.c
+++ basename third_party/lua/ldo.o
++ obj_out_path=out/obj/ldo.o
++ echo 'Compiling third_party/lua/ldo.c to object out/obj/ldo.o'
+Compiling third_party/lua/ldo.c to object out/obj/ldo.o
++ emcc -v -Ithird_party/lua third_party/lua/ldo.c -c -o out/obj/ldo.o
+ /opt/emscripten-llvm/bin/clang -target wasm32-unknown-emscripten -fignore-exceptions -fvisibility=default -mllvm -combiner-global-alias-analysis=false -mllvm -enable-emscripten-sjlj -mllvm -disable-lsr --sysroot=/home/alex/.emscripten_cache/sysroot -DEMSCRIPTEN -Werror=implicit-function-declaration -Xclang -iwithsysroot/include/fakesdl -Xclang -iwithsysroot/include/compat -v -Ithird_party/lua -c third_party/lua/ldo.c -o out/obj/ldo.o
+clang version 19.0.0git (/startdir/llvm-project 6c7805d5d186a6d1263f90b8033ad85e2d2633d7)
+Target: wasm32-unknown-emscripten
+Thread model: posix
+InstalledDir: /opt/emscripten-llvm/bin
+ (in-process)
+ "/opt/emscripten-llvm/bin/clang-19" -cc1 -triple wasm32-unknown-emscripten -emit-obj -mrelax-all -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name ldo.c -mrelocation-model static -mframe-pointer=none -ffp-contract=on -fno-rounding-math -mconstructor-aliases -target-cpu generic -debugger-tuning=gdb -fdebug-compilation-dir=/home/alex/code/misc/misc/emscripten_multiple_mains -v -fcoverage-compilation-dir=/home/alex/code/misc/misc/emscripten_multiple_mains -resource-dir /opt/emscripten-llvm/lib/clang/19 -D EMSCRIPTEN -I third_party/lua -isysroot /home/alex/.emscripten_cache/sysroot -internal-isystem /opt/emscripten-llvm/lib/clang/19/include -internal-isystem /home/alex/.emscripten_cache/sysroot/include/wasm32-emscripten -internal-isystem /home/alex/.emscripten_cache/sysroot/include -Werror=implicit-function-declaration -ferror-limit 19 -fvisibility=default -fgnuc-version=4.2.1 -fskip-odr-check-in-gmf -fignore-exceptions -iwithsysroot/include/fakesdl -iwithsysroot/include/compat -mllvm -combiner-global-alias-analysis=false -mllvm -enable-emscripten-sjlj -mllvm -disable-lsr -o out/obj/ldo.o -x c third_party/lua/ldo.c
+clang -cc1 version 19.0.0git based upon LLVM 19.0.0git default target x86_64-unknown-linux-gnu
+ignoring nonexistent directory "/home/alex/.emscripten_cache/sysroot/include/wasm32-emscripten"
+#include "..." search starts here:
+#include <...> search starts here:
+ third_party/lua
+ /home/alex/.emscripten_cache/sysroot/include/fakesdl
+ /home/alex/.emscripten_cache/sysroot/include/compat
+ /opt/emscripten-llvm/lib/clang/19/include
+ /home/alex/.emscripten_cache/sysroot/include
+End of search list.
++ for lua_src in third_party/lua/*.c
+++ basename third_party/lua/ldump.o
++ obj_out_path=out/obj/ldump.o
++ echo 'Compiling third_party/lua/ldump.c to object out/obj/ldump.o'
+Compiling third_party/lua/ldump.c to object out/obj/ldump.o
++ emcc -v -Ithird_party/lua third_party/lua/ldump.c -c -o out/obj/ldump.o
+ /opt/emscripten-llvm/bin/clang -target wasm32-unknown-emscripten -fignore-exceptions -fvisibility=default -mllvm -combiner-global-alias-analysis=false -mllvm -enable-emscripten-sjlj -mllvm -disable-lsr --sysroot=/home/alex/.emscripten_cache/sysroot -DEMSCRIPTEN -Werror=implicit-function-declaration -Xclang -iwithsysroot/include/fakesdl -Xclang -iwithsysroot/include/compat -v -Ithird_party/lua -c third_party/lua/ldump.c -o out/obj/ldump.o
+clang version 19.0.0git (/startdir/llvm-project 6c7805d5d186a6d1263f90b8033ad85e2d2633d7)
+Target: wasm32-unknown-emscripten
+Thread model: posix
+InstalledDir: /opt/emscripten-llvm/bin
+ (in-process)
+ "/opt/emscripten-llvm/bin/clang-19" -cc1 -triple wasm32-unknown-emscripten -emit-obj -mrelax-all -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name ldump.c -mrelocation-model static -mframe-pointer=none -ffp-contract=on -fno-rounding-math -mconstructor-aliases -target-cpu generic -debugger-tuning=gdb -fdebug-compilation-dir=/home/alex/code/misc/misc/emscripten_multiple_mains -v -fcoverage-compilation-dir=/home/alex/code/misc/misc/emscripten_multiple_mains -resource-dir /opt/emscripten-llvm/lib/clang/19 -D EMSCRIPTEN -I third_party/lua -isysroot /home/alex/.emscripten_cache/sysroot -internal-isystem /opt/emscripten-llvm/lib/clang/19/include -internal-isystem /home/alex/.emscripten_cache/sysroot/include/wasm32-emscripten -internal-isystem /home/alex/.emscripten_cache/sysroot/include -Werror=implicit-function-declaration -ferror-limit 19 -fvisibility=default -fgnuc-version=4.2.1 -fskip-odr-check-in-gmf -fignore-exceptions -iwithsysroot/include/fakesdl -iwithsysroot/include/compat -mllvm -combiner-global-alias-analysis=false -mllvm -enable-emscripten-sjlj -mllvm -disable-lsr -o out/obj/ldump.o -x c third_party/lua/ldump.c
+clang -cc1 version 19.0.0git based upon LLVM 19.0.0git default target x86_64-unknown-linux-gnu
+ignoring nonexistent directory "/home/alex/.emscripten_cache/sysroot/include/wasm32-emscripten"
+#include "..." search starts here:
+#include <...> search starts here:
+ third_party/lua
+ /home/alex/.emscripten_cache/sysroot/include/fakesdl
+ /home/alex/.emscripten_cache/sysroot/include/compat
+ /opt/emscripten-llvm/lib/clang/19/include
+ /home/alex/.emscripten_cache/sysroot/include
+End of search list.
++ for lua_src in third_party/lua/*.c
+++ basename third_party/lua/lfunc.o
++ obj_out_path=out/obj/lfunc.o
++ echo 'Compiling third_party/lua/lfunc.c to object out/obj/lfunc.o'
+Compiling third_party/lua/lfunc.c to object out/obj/lfunc.o
++ emcc -v -Ithird_party/lua third_party/lua/lfunc.c -c -o out/obj/lfunc.o
+ /opt/emscripten-llvm/bin/clang -target wasm32-unknown-emscripten -fignore-exceptions -fvisibility=default -mllvm -combiner-global-alias-analysis=false -mllvm -enable-emscripten-sjlj -mllvm -disable-lsr --sysroot=/home/alex/.emscripten_cache/sysroot -DEMSCRIPTEN -Werror=implicit-function-declaration -Xclang -iwithsysroot/include/fakesdl -Xclang -iwithsysroot/include/compat -v -Ithird_party/lua -c third_party/lua/lfunc.c -o out/obj/lfunc.o
+clang version 19.0.0git (/startdir/llvm-project 6c7805d5d186a6d1263f90b8033ad85e2d2633d7)
+Target: wasm32-unknown-emscripten
+Thread model: posix
+InstalledDir: /opt/emscripten-llvm/bin
+ (in-process)
+ "/opt/emscripten-llvm/bin/clang-19" -cc1 -triple wasm32-unknown-emscripten -emit-obj -mrelax-all -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name lfunc.c -mrelocation-model static -mframe-pointer=none -ffp-contract=on -fno-rounding-math -mconstructor-aliases -target-cpu generic -debugger-tuning=gdb -fdebug-compilation-dir=/home/alex/code/misc/misc/emscripten_multiple_mains -v -fcoverage-compilation-dir=/home/alex/code/misc/misc/emscripten_multiple_mains -resource-dir /opt/emscripten-llvm/lib/clang/19 -D EMSCRIPTEN -I third_party/lua -isysroot /home/alex/.emscripten_cache/sysroot -internal-isystem /opt/emscripten-llvm/lib/clang/19/include -internal-isystem /home/alex/.emscripten_cache/sysroot/include/wasm32-emscripten -internal-isystem /home/alex/.emscripten_cache/sysroot/include -Werror=implicit-function-declaration -ferror-limit 19 -fvisibility=default -fgnuc-version=4.2.1 -fskip-odr-check-in-gmf -fignore-exceptions -iwithsysroot/include/fakesdl -iwithsysroot/include/compat -mllvm -combiner-global-alias-analysis=false -mllvm -enable-emscripten-sjlj -mllvm -disable-lsr -o out/obj/lfunc.o -x c third_party/lua/lfunc.c
+clang -cc1 version 19.0.0git based upon LLVM 19.0.0git default target x86_64-unknown-linux-gnu
+ignoring nonexistent directory "/home/alex/.emscripten_cache/sysroot/include/wasm32-emscripten"
+#include "..." search starts here:
+#include <...> search starts here:
+ third_party/lua
+ /home/alex/.emscripten_cache/sysroot/include/fakesdl
+ /home/alex/.emscripten_cache/sysroot/include/compat
+ /opt/emscripten-llvm/lib/clang/19/include
+ /home/alex/.emscripten_cache/sysroot/include
+End of search list.
++ for lua_src in third_party/lua/*.c
+++ basename third_party/lua/lgc.o
++ obj_out_path=out/obj/lgc.o
++ echo 'Compiling third_party/lua/lgc.c to object out/obj/lgc.o'
+Compiling third_party/lua/lgc.c to object out/obj/lgc.o
++ emcc -v -Ithird_party/lua third_party/lua/lgc.c -c -o out/obj/lgc.o
+ /opt/emscripten-llvm/bin/clang -target wasm32-unknown-emscripten -fignore-exceptions -fvisibility=default -mllvm -combiner-global-alias-analysis=false -mllvm -enable-emscripten-sjlj -mllvm -disable-lsr --sysroot=/home/alex/.emscripten_cache/sysroot -DEMSCRIPTEN -Werror=implicit-function-declaration -Xclang -iwithsysroot/include/fakesdl -Xclang -iwithsysroot/include/compat -v -Ithird_party/lua -c third_party/lua/lgc.c -o out/obj/lgc.o
+clang version 19.0.0git (/startdir/llvm-project 6c7805d5d186a6d1263f90b8033ad85e2d2633d7)
+Target: wasm32-unknown-emscripten
+Thread model: posix
+InstalledDir: /opt/emscripten-llvm/bin
+ (in-process)
+ "/opt/emscripten-llvm/bin/clang-19" -cc1 -triple wasm32-unknown-emscripten -emit-obj -mrelax-all -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name lgc.c -mrelocation-model static -mframe-pointer=none -ffp-contract=on -fno-rounding-math -mconstructor-aliases -target-cpu generic -debugger-tuning=gdb -fdebug-compilation-dir=/home/alex/code/misc/misc/emscripten_multiple_mains -v -fcoverage-compilation-dir=/home/alex/code/misc/misc/emscripten_multiple_mains -resource-dir /opt/emscripten-llvm/lib/clang/19 -D EMSCRIPTEN -I third_party/lua -isysroot /home/alex/.emscripten_cache/sysroot -internal-isystem /opt/emscripten-llvm/lib/clang/19/include -internal-isystem /home/alex/.emscripten_cache/sysroot/include/wasm32-emscripten -internal-isystem /home/alex/.emscripten_cache/sysroot/include -Werror=implicit-function-declaration -ferror-limit 19 -fvisibility=default -fgnuc-version=4.2.1 -fskip-odr-check-in-gmf -fignore-exceptions -iwithsysroot/include/fakesdl -iwithsysroot/include/compat -mllvm -combiner-global-alias-analysis=false -mllvm -enable-emscripten-sjlj -mllvm -disable-lsr -o out/obj/lgc.o -x c third_party/lua/lgc.c
+clang -cc1 version 19.0.0git based upon LLVM 19.0.0git default target x86_64-unknown-linux-gnu
+ignoring nonexistent directory "/home/alex/.emscripten_cache/sysroot/include/wasm32-emscripten"
+#include "..." search starts here:
+#include <...> search starts here:
+ third_party/lua
+ /home/alex/.emscripten_cache/sysroot/include/fakesdl
+ /home/alex/.emscripten_cache/sysroot/include/compat
+ /opt/emscripten-llvm/lib/clang/19/include
+ /home/alex/.emscripten_cache/sysroot/include
+End of search list.
++ for lua_src in third_party/lua/*.c
+++ basename third_party/lua/linit.o
++ obj_out_path=out/obj/linit.o
++ echo 'Compiling third_party/lua/linit.c to object out/obj/linit.o'
+Compiling third_party/lua/linit.c to object out/obj/linit.o
++ emcc -v -Ithird_party/lua third_party/lua/linit.c -c -o out/obj/linit.o
+ /opt/emscripten-llvm/bin/clang -target wasm32-unknown-emscripten -fignore-exceptions -fvisibility=default -mllvm -combiner-global-alias-analysis=false -mllvm -enable-emscripten-sjlj -mllvm -disable-lsr --sysroot=/home/alex/.emscripten_cache/sysroot -DEMSCRIPTEN -Werror=implicit-function-declaration -Xclang -iwithsysroot/include/fakesdl -Xclang -iwithsysroot/include/compat -v -Ithird_party/lua -c third_party/lua/linit.c -o out/obj/linit.o
+clang version 19.0.0git (/startdir/llvm-project 6c7805d5d186a6d1263f90b8033ad85e2d2633d7)
+Target: wasm32-unknown-emscripten
+Thread model: posix
+InstalledDir: /opt/emscripten-llvm/bin
+ (in-process)
+ "/opt/emscripten-llvm/bin/clang-19" -cc1 -triple wasm32-unknown-emscripten -emit-obj -mrelax-all -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name linit.c -mrelocation-model static -mframe-pointer=none -ffp-contract=on -fno-rounding-math -mconstructor-aliases -target-cpu generic -debugger-tuning=gdb -fdebug-compilation-dir=/home/alex/code/misc/misc/emscripten_multiple_mains -v -fcoverage-compilation-dir=/home/alex/code/misc/misc/emscripten_multiple_mains -resource-dir /opt/emscripten-llvm/lib/clang/19 -D EMSCRIPTEN -I third_party/lua -isysroot /home/alex/.emscripten_cache/sysroot -internal-isystem /opt/emscripten-llvm/lib/clang/19/include -internal-isystem /home/alex/.emscripten_cache/sysroot/include/wasm32-emscripten -internal-isystem /home/alex/.emscripten_cache/sysroot/include -Werror=implicit-function-declaration -ferror-limit 19 -fvisibility=default -fgnuc-version=4.2.1 -fskip-odr-check-in-gmf -fignore-exceptions -iwithsysroot/include/fakesdl -iwithsysroot/include/compat -mllvm -combiner-global-alias-analysis=false -mllvm -enable-emscripten-sjlj -mllvm -disable-lsr -o out/obj/linit.o -x c third_party/lua/linit.c
+clang -cc1 version 19.0.0git based upon LLVM 19.0.0git default target x86_64-unknown-linux-gnu
+ignoring nonexistent directory "/home/alex/.emscripten_cache/sysroot/include/wasm32-emscripten"
+#include "..." search starts here:
+#include <...> search starts here:
+ third_party/lua
+ /home/alex/.emscripten_cache/sysroot/include/fakesdl
+ /home/alex/.emscripten_cache/sysroot/include/compat
+ /opt/emscripten-llvm/lib/clang/19/include
+ /home/alex/.emscripten_cache/sysroot/include
+End of search list.
++ for lua_src in third_party/lua/*.c
+++ basename third_party/lua/liolib.o
++ obj_out_path=out/obj/liolib.o
++ echo 'Compiling third_party/lua/liolib.c to object out/obj/liolib.o'
+Compiling third_party/lua/liolib.c to object out/obj/liolib.o
++ emcc -v -Ithird_party/lua third_party/lua/liolib.c -c -o out/obj/liolib.o
+ /opt/emscripten-llvm/bin/clang -target wasm32-unknown-emscripten -fignore-exceptions -fvisibility=default -mllvm -combiner-global-alias-analysis=false -mllvm -enable-emscripten-sjlj -mllvm -disable-lsr --sysroot=/home/alex/.emscripten_cache/sysroot -DEMSCRIPTEN -Werror=implicit-function-declaration -Xclang -iwithsysroot/include/fakesdl -Xclang -iwithsysroot/include/compat -v -Ithird_party/lua -c third_party/lua/liolib.c -o out/obj/liolib.o
+clang version 19.0.0git (/startdir/llvm-project 6c7805d5d186a6d1263f90b8033ad85e2d2633d7)
+Target: wasm32-unknown-emscripten
+Thread model: posix
+InstalledDir: /opt/emscripten-llvm/bin
+ (in-process)
+ "/opt/emscripten-llvm/bin/clang-19" -cc1 -triple wasm32-unknown-emscripten -emit-obj -mrelax-all -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name liolib.c -mrelocation-model static -mframe-pointer=none -ffp-contract=on -fno-rounding-math -mconstructor-aliases -target-cpu generic -debugger-tuning=gdb -fdebug-compilation-dir=/home/alex/code/misc/misc/emscripten_multiple_mains -v -fcoverage-compilation-dir=/home/alex/code/misc/misc/emscripten_multiple_mains -resource-dir /opt/emscripten-llvm/lib/clang/19 -D EMSCRIPTEN -I third_party/lua -isysroot /home/alex/.emscripten_cache/sysroot -internal-isystem /opt/emscripten-llvm/lib/clang/19/include -internal-isystem /home/alex/.emscripten_cache/sysroot/include/wasm32-emscripten -internal-isystem /home/alex/.emscripten_cache/sysroot/include -Werror=implicit-function-declaration -ferror-limit 19 -fvisibility=default -fgnuc-version=4.2.1 -fskip-odr-check-in-gmf -fignore-exceptions -iwithsysroot/include/fakesdl -iwithsysroot/include/compat -mllvm -combiner-global-alias-analysis=false -mllvm -enable-emscripten-sjlj -mllvm -disable-lsr -o out/obj/liolib.o -x c third_party/lua/liolib.c
+clang -cc1 version 19.0.0git based upon LLVM 19.0.0git default target x86_64-unknown-linux-gnu
+ignoring nonexistent directory "/home/alex/.emscripten_cache/sysroot/include/wasm32-emscripten"
+#include "..." search starts here:
+#include <...> search starts here:
+ third_party/lua
+ /home/alex/.emscripten_cache/sysroot/include/fakesdl
+ /home/alex/.emscripten_cache/sysroot/include/compat
+ /opt/emscripten-llvm/lib/clang/19/include
+ /home/alex/.emscripten_cache/sysroot/include
+End of search list.
++ for lua_src in third_party/lua/*.c
+++ basename third_party/lua/llex.o
++ obj_out_path=out/obj/llex.o
++ echo 'Compiling third_party/lua/llex.c to object out/obj/llex.o'
+Compiling third_party/lua/llex.c to object out/obj/llex.o
++ emcc -v -Ithird_party/lua third_party/lua/llex.c -c -o out/obj/llex.o
+ /opt/emscripten-llvm/bin/clang -target wasm32-unknown-emscripten -fignore-exceptions -fvisibility=default -mllvm -combiner-global-alias-analysis=false -mllvm -enable-emscripten-sjlj -mllvm -disable-lsr --sysroot=/home/alex/.emscripten_cache/sysroot -DEMSCRIPTEN -Werror=implicit-function-declaration -Xclang -iwithsysroot/include/fakesdl -Xclang -iwithsysroot/include/compat -v -Ithird_party/lua -c third_party/lua/llex.c -o out/obj/llex.o
+clang version 19.0.0git (/startdir/llvm-project 6c7805d5d186a6d1263f90b8033ad85e2d2633d7)
+Target: wasm32-unknown-emscripten
+Thread model: posix
+InstalledDir: /opt/emscripten-llvm/bin
+ (in-process)
+ "/opt/emscripten-llvm/bin/clang-19" -cc1 -triple wasm32-unknown-emscripten -emit-obj -mrelax-all -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name llex.c -mrelocation-model static -mframe-pointer=none -ffp-contract=on -fno-rounding-math -mconstructor-aliases -target-cpu generic -debugger-tuning=gdb -fdebug-compilation-dir=/home/alex/code/misc/misc/emscripten_multiple_mains -v -fcoverage-compilation-dir=/home/alex/code/misc/misc/emscripten_multiple_mains -resource-dir /opt/emscripten-llvm/lib/clang/19 -D EMSCRIPTEN -I third_party/lua -isysroot /home/alex/.emscripten_cache/sysroot -internal-isystem /opt/emscripten-llvm/lib/clang/19/include -internal-isystem /home/alex/.emscripten_cache/sysroot/include/wasm32-emscripten -internal-isystem /home/alex/.emscripten_cache/sysroot/include -Werror=implicit-function-declaration -ferror-limit 19 -fvisibility=default -fgnuc-version=4.2.1 -fskip-odr-check-in-gmf -fignore-exceptions -iwithsysroot/include/fakesdl -iwithsysroot/include/compat -mllvm -combiner-global-alias-analysis=false -mllvm -enable-emscripten-sjlj -mllvm -disable-lsr -o out/obj/llex.o -x c third_party/lua/llex.c
+clang -cc1 version 19.0.0git based upon LLVM 19.0.0git default target x86_64-unknown-linux-gnu
+ignoring nonexistent directory "/home/alex/.emscripten_cache/sysroot/include/wasm32-emscripten"
+#include "..." search starts here:
+#include <...> search starts here:
+ third_party/lua
+ /home/alex/.emscripten_cache/sysroot/include/fakesdl
+ /home/alex/.emscripten_cache/sysroot/include/compat
+ /opt/emscripten-llvm/lib/clang/19/include
+ /home/alex/.emscripten_cache/sysroot/include
+End of search list.
++ for lua_src in third_party/lua/*.c
+++ basename third_party/lua/lmathlib.o
++ obj_out_path=out/obj/lmathlib.o
++ echo 'Compiling third_party/lua/lmathlib.c to object out/obj/lmathlib.o'
+Compiling third_party/lua/lmathlib.c to object out/obj/lmathlib.o
++ emcc -v -Ithird_party/lua third_party/lua/lmathlib.c -c -o out/obj/lmathlib.o
+ /opt/emscripten-llvm/bin/clang -target wasm32-unknown-emscripten -fignore-exceptions -fvisibility=default -mllvm -combiner-global-alias-analysis=false -mllvm -enable-emscripten-sjlj -mllvm -disable-lsr --sysroot=/home/alex/.emscripten_cache/sysroot -DEMSCRIPTEN -Werror=implicit-function-declaration -Xclang -iwithsysroot/include/fakesdl -Xclang -iwithsysroot/include/compat -v -Ithird_party/lua -c third_party/lua/lmathlib.c -o out/obj/lmathlib.o
+clang version 19.0.0git (/startdir/llvm-project 6c7805d5d186a6d1263f90b8033ad85e2d2633d7)
+Target: wasm32-unknown-emscripten
+Thread model: posix
+InstalledDir: /opt/emscripten-llvm/bin
+ (in-process)
+ "/opt/emscripten-llvm/bin/clang-19" -cc1 -triple wasm32-unknown-emscripten -emit-obj -mrelax-all -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name lmathlib.c -mrelocation-model static -mframe-pointer=none -ffp-contract=on -fno-rounding-math -mconstructor-aliases -target-cpu generic -debugger-tuning=gdb -fdebug-compilation-dir=/home/alex/code/misc/misc/emscripten_multiple_mains -v -fcoverage-compilation-dir=/home/alex/code/misc/misc/emscripten_multiple_mains -resource-dir /opt/emscripten-llvm/lib/clang/19 -D EMSCRIPTEN -I third_party/lua -isysroot /home/alex/.emscripten_cache/sysroot -internal-isystem /opt/emscripten-llvm/lib/clang/19/include -internal-isystem /home/alex/.emscripten_cache/sysroot/include/wasm32-emscripten -internal-isystem /home/alex/.emscripten_cache/sysroot/include -Werror=implicit-function-declaration -ferror-limit 19 -fvisibility=default -fgnuc-version=4.2.1 -fskip-odr-check-in-gmf -fignore-exceptions -iwithsysroot/include/fakesdl -iwithsysroot/include/compat -mllvm -combiner-global-alias-analysis=false -mllvm -enable-emscripten-sjlj -mllvm -disable-lsr -o out/obj/lmathlib.o -x c third_party/lua/lmathlib.c
+clang -cc1 version 19.0.0git based upon LLVM 19.0.0git default target x86_64-unknown-linux-gnu
+ignoring nonexistent directory "/home/alex/.emscripten_cache/sysroot/include/wasm32-emscripten"
+#include "..." search starts here:
+#include <...> search starts here:
+ third_party/lua
+ /home/alex/.emscripten_cache/sysroot/include/fakesdl
+ /home/alex/.emscripten_cache/sysroot/include/compat
+ /opt/emscripten-llvm/lib/clang/19/include
+ /home/alex/.emscripten_cache/sysroot/include
+End of search list.
++ for lua_src in third_party/lua/*.c
+++ basename third_party/lua/lmem.o
++ obj_out_path=out/obj/lmem.o
++ echo 'Compiling third_party/lua/lmem.c to object out/obj/lmem.o'
+Compiling third_party/lua/lmem.c to object out/obj/lmem.o
++ emcc -v -Ithird_party/lua third_party/lua/lmem.c -c -o out/obj/lmem.o
+ /opt/emscripten-llvm/bin/clang -target wasm32-unknown-emscripten -fignore-exceptions -fvisibility=default -mllvm -combiner-global-alias-analysis=false -mllvm -enable-emscripten-sjlj -mllvm -disable-lsr --sysroot=/home/alex/.emscripten_cache/sysroot -DEMSCRIPTEN -Werror=implicit-function-declaration -Xclang -iwithsysroot/include/fakesdl -Xclang -iwithsysroot/include/compat -v -Ithird_party/lua -c third_party/lua/lmem.c -o out/obj/lmem.o
+clang version 19.0.0git (/startdir/llvm-project 6c7805d5d186a6d1263f90b8033ad85e2d2633d7)
+Target: wasm32-unknown-emscripten
+Thread model: posix
+InstalledDir: /opt/emscripten-llvm/bin
+ (in-process)
+ "/opt/emscripten-llvm/bin/clang-19" -cc1 -triple wasm32-unknown-emscripten -emit-obj -mrelax-all -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name lmem.c -mrelocation-model static -mframe-pointer=none -ffp-contract=on -fno-rounding-math -mconstructor-aliases -target-cpu generic -debugger-tuning=gdb -fdebug-compilation-dir=/home/alex/code/misc/misc/emscripten_multiple_mains -v -fcoverage-compilation-dir=/home/alex/code/misc/misc/emscripten_multiple_mains -resource-dir /opt/emscripten-llvm/lib/clang/19 -D EMSCRIPTEN -I third_party/lua -isysroot /home/alex/.emscripten_cache/sysroot -internal-isystem /opt/emscripten-llvm/lib/clang/19/include -internal-isystem /home/alex/.emscripten_cache/sysroot/include/wasm32-emscripten -internal-isystem /home/alex/.emscripten_cache/sysroot/include -Werror=implicit-function-declaration -ferror-limit 19 -fvisibility=default -fgnuc-version=4.2.1 -fskip-odr-check-in-gmf -fignore-exceptions -iwithsysroot/include/fakesdl -iwithsysroot/include/compat -mllvm -combiner-global-alias-analysis=false -mllvm -enable-emscripten-sjlj -mllvm -disable-lsr -o out/obj/lmem.o -x c third_party/lua/lmem.c
+clang -cc1 version 19.0.0git based upon LLVM 19.0.0git default target x86_64-unknown-linux-gnu
+ignoring nonexistent directory "/home/alex/.emscripten_cache/sysroot/include/wasm32-emscripten"
+#include "..." search starts here:
+#include <...> search starts here:
+ third_party/lua
+ /home/alex/.emscripten_cache/sysroot/include/fakesdl
+ /home/alex/.emscripten_cache/sysroot/include/compat
+ /opt/emscripten-llvm/lib/clang/19/include
+ /home/alex/.emscripten_cache/sysroot/include
+End of search list.
++ for lua_src in third_party/lua/*.c
+++ basename third_party/lua/loadlib.o
++ obj_out_path=out/obj/loadlib.o
++ echo 'Compiling third_party/lua/loadlib.c to object out/obj/loadlib.o'
+Compiling third_party/lua/loadlib.c to object out/obj/loadlib.o
++ emcc -v -Ithird_party/lua third_party/lua/loadlib.c -c -o out/obj/loadlib.o
+ /opt/emscripten-llvm/bin/clang -target wasm32-unknown-emscripten -fignore-exceptions -fvisibility=default -mllvm -combiner-global-alias-analysis=false -mllvm -enable-emscripten-sjlj -mllvm -disable-lsr --sysroot=/home/alex/.emscripten_cache/sysroot -DEMSCRIPTEN -Werror=implicit-function-declaration -Xclang -iwithsysroot/include/fakesdl -Xclang -iwithsysroot/include/compat -v -Ithird_party/lua -c third_party/lua/loadlib.c -o out/obj/loadlib.o
+clang version 19.0.0git (/startdir/llvm-project 6c7805d5d186a6d1263f90b8033ad85e2d2633d7)
+Target: wasm32-unknown-emscripten
+Thread model: posix
+InstalledDir: /opt/emscripten-llvm/bin
+ (in-process)
+ "/opt/emscripten-llvm/bin/clang-19" -cc1 -triple wasm32-unknown-emscripten -emit-obj -mrelax-all -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name loadlib.c -mrelocation-model static -mframe-pointer=none -ffp-contract=on -fno-rounding-math -mconstructor-aliases -target-cpu generic -debugger-tuning=gdb -fdebug-compilation-dir=/home/alex/code/misc/misc/emscripten_multiple_mains -v -fcoverage-compilation-dir=/home/alex/code/misc/misc/emscripten_multiple_mains -resource-dir /opt/emscripten-llvm/lib/clang/19 -D EMSCRIPTEN -I third_party/lua -isysroot /home/alex/.emscripten_cache/sysroot -internal-isystem /opt/emscripten-llvm/lib/clang/19/include -internal-isystem /home/alex/.emscripten_cache/sysroot/include/wasm32-emscripten -internal-isystem /home/alex/.emscripten_cache/sysroot/include -Werror=implicit-function-declaration -ferror-limit 19 -fvisibility=default -fgnuc-version=4.2.1 -fskip-odr-check-in-gmf -fignore-exceptions -iwithsysroot/include/fakesdl -iwithsysroot/include/compat -mllvm -combiner-global-alias-analysis=false -mllvm -enable-emscripten-sjlj -mllvm -disable-lsr -o out/obj/loadlib.o -x c third_party/lua/loadlib.c
+clang -cc1 version 19.0.0git based upon LLVM 19.0.0git default target x86_64-unknown-linux-gnu
+ignoring nonexistent directory "/home/alex/.emscripten_cache/sysroot/include/wasm32-emscripten"
+#include "..." search starts here:
+#include <...> search starts here:
+ third_party/lua
+ /home/alex/.emscripten_cache/sysroot/include/fakesdl
+ /home/alex/.emscripten_cache/sysroot/include/compat
+ /opt/emscripten-llvm/lib/clang/19/include
+ /home/alex/.emscripten_cache/sysroot/include
+End of search list.
++ for lua_src in third_party/lua/*.c
+++ basename third_party/lua/lobject.o
++ obj_out_path=out/obj/lobject.o
++ echo 'Compiling third_party/lua/lobject.c to object out/obj/lobject.o'
+Compiling third_party/lua/lobject.c to object out/obj/lobject.o
++ emcc -v -Ithird_party/lua third_party/lua/lobject.c -c -o out/obj/lobject.o
+ /opt/emscripten-llvm/bin/clang -target wasm32-unknown-emscripten -fignore-exceptions -fvisibility=default -mllvm -combiner-global-alias-analysis=false -mllvm -enable-emscripten-sjlj -mllvm -disable-lsr --sysroot=/home/alex/.emscripten_cache/sysroot -DEMSCRIPTEN -Werror=implicit-function-declaration -Xclang -iwithsysroot/include/fakesdl -Xclang -iwithsysroot/include/compat -v -Ithird_party/lua -c third_party/lua/lobject.c -o out/obj/lobject.o
+clang version 19.0.0git (/startdir/llvm-project 6c7805d5d186a6d1263f90b8033ad85e2d2633d7)
+Target: wasm32-unknown-emscripten
+Thread model: posix
+InstalledDir: /opt/emscripten-llvm/bin
+ (in-process)
+ "/opt/emscripten-llvm/bin/clang-19" -cc1 -triple wasm32-unknown-emscripten -emit-obj -mrelax-all -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name lobject.c -mrelocation-model static -mframe-pointer=none -ffp-contract=on -fno-rounding-math -mconstructor-aliases -target-cpu generic -debugger-tuning=gdb -fdebug-compilation-dir=/home/alex/code/misc/misc/emscripten_multiple_mains -v -fcoverage-compilation-dir=/home/alex/code/misc/misc/emscripten_multiple_mains -resource-dir /opt/emscripten-llvm/lib/clang/19 -D EMSCRIPTEN -I third_party/lua -isysroot /home/alex/.emscripten_cache/sysroot -internal-isystem /opt/emscripten-llvm/lib/clang/19/include -internal-isystem /home/alex/.emscripten_cache/sysroot/include/wasm32-emscripten -internal-isystem /home/alex/.emscripten_cache/sysroot/include -Werror=implicit-function-declaration -ferror-limit 19 -fvisibility=default -fgnuc-version=4.2.1 -fskip-odr-check-in-gmf -fignore-exceptions -iwithsysroot/include/fakesdl -iwithsysroot/include/compat -mllvm -combiner-global-alias-analysis=false -mllvm -enable-emscripten-sjlj -mllvm -disable-lsr -o out/obj/lobject.o -x c third_party/lua/lobject.c
+clang -cc1 version 19.0.0git based upon LLVM 19.0.0git default target x86_64-unknown-linux-gnu
+ignoring nonexistent directory "/home/alex/.emscripten_cache/sysroot/include/wasm32-emscripten"
+#include "..." search starts here:
+#include <...> search starts here:
+ third_party/lua
+ /home/alex/.emscripten_cache/sysroot/include/fakesdl
+ /home/alex/.emscripten_cache/sysroot/include/compat
+ /opt/emscripten-llvm/lib/clang/19/include
+ /home/alex/.emscripten_cache/sysroot/include
+End of search list.
++ for lua_src in third_party/lua/*.c
+++ basename third_party/lua/lopcodes.o
++ obj_out_path=out/obj/lopcodes.o
++ echo 'Compiling third_party/lua/lopcodes.c to object out/obj/lopcodes.o'
+Compiling third_party/lua/lopcodes.c to object out/obj/lopcodes.o
++ emcc -v -Ithird_party/lua third_party/lua/lopcodes.c -c -o out/obj/lopcodes.o
+ /opt/emscripten-llvm/bin/clang -target wasm32-unknown-emscripten -fignore-exceptions -fvisibility=default -mllvm -combiner-global-alias-analysis=false -mllvm -enable-emscripten-sjlj -mllvm -disable-lsr --sysroot=/home/alex/.emscripten_cache/sysroot -DEMSCRIPTEN -Werror=implicit-function-declaration -Xclang -iwithsysroot/include/fakesdl -Xclang -iwithsysroot/include/compat -v -Ithird_party/lua -c third_party/lua/lopcodes.c -o out/obj/lopcodes.o
+clang version 19.0.0git (/startdir/llvm-project 6c7805d5d186a6d1263f90b8033ad85e2d2633d7)
+Target: wasm32-unknown-emscripten
+Thread model: posix
+InstalledDir: /opt/emscripten-llvm/bin
+ (in-process)
+ "/opt/emscripten-llvm/bin/clang-19" -cc1 -triple wasm32-unknown-emscripten -emit-obj -mrelax-all -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name lopcodes.c -mrelocation-model static -mframe-pointer=none -ffp-contract=on -fno-rounding-math -mconstructor-aliases -target-cpu generic -debugger-tuning=gdb -fdebug-compilation-dir=/home/alex/code/misc/misc/emscripten_multiple_mains -v -fcoverage-compilation-dir=/home/alex/code/misc/misc/emscripten_multiple_mains -resource-dir /opt/emscripten-llvm/lib/clang/19 -D EMSCRIPTEN -I third_party/lua -isysroot /home/alex/.emscripten_cache/sysroot -internal-isystem /opt/emscripten-llvm/lib/clang/19/include -internal-isystem /home/alex/.emscripten_cache/sysroot/include/wasm32-emscripten -internal-isystem /home/alex/.emscripten_cache/sysroot/include -Werror=implicit-function-declaration -ferror-limit 19 -fvisibility=default -fgnuc-version=4.2.1 -fskip-odr-check-in-gmf -fignore-exceptions -iwithsysroot/include/fakesdl -iwithsysroot/include/compat -mllvm -combiner-global-alias-analysis=false -mllvm -enable-emscripten-sjlj -mllvm -disable-lsr -o out/obj/lopcodes.o -x c third_party/lua/lopcodes.c
+clang -cc1 version 19.0.0git based upon LLVM 19.0.0git default target x86_64-unknown-linux-gnu
+ignoring nonexistent directory "/home/alex/.emscripten_cache/sysroot/include/wasm32-emscripten"
+#include "..." search starts here:
+#include <...> search starts here:
+ third_party/lua
+ /home/alex/.emscripten_cache/sysroot/include/fakesdl
+ /home/alex/.emscripten_cache/sysroot/include/compat
+ /opt/emscripten-llvm/lib/clang/19/include
+ /home/alex/.emscripten_cache/sysroot/include
+End of search list.
++ for lua_src in third_party/lua/*.c
+++ basename third_party/lua/loslib.o
++ obj_out_path=out/obj/loslib.o
++ echo 'Compiling third_party/lua/loslib.c to object out/obj/loslib.o'
+Compiling third_party/lua/loslib.c to object out/obj/loslib.o
++ emcc -v -Ithird_party/lua third_party/lua/loslib.c -c -o out/obj/loslib.o
+ /opt/emscripten-llvm/bin/clang -target wasm32-unknown-emscripten -fignore-exceptions -fvisibility=default -mllvm -combiner-global-alias-analysis=false -mllvm -enable-emscripten-sjlj -mllvm -disable-lsr --sysroot=/home/alex/.emscripten_cache/sysroot -DEMSCRIPTEN -Werror=implicit-function-declaration -Xclang -iwithsysroot/include/fakesdl -Xclang -iwithsysroot/include/compat -v -Ithird_party/lua -c third_party/lua/loslib.c -o out/obj/loslib.o
+clang version 19.0.0git (/startdir/llvm-project 6c7805d5d186a6d1263f90b8033ad85e2d2633d7)
+Target: wasm32-unknown-emscripten
+Thread model: posix
+InstalledDir: /opt/emscripten-llvm/bin
+ (in-process)
+ "/opt/emscripten-llvm/bin/clang-19" -cc1 -triple wasm32-unknown-emscripten -emit-obj -mrelax-all -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name loslib.c -mrelocation-model static -mframe-pointer=none -ffp-contract=on -fno-rounding-math -mconstructor-aliases -target-cpu generic -debugger-tuning=gdb -fdebug-compilation-dir=/home/alex/code/misc/misc/emscripten_multiple_mains -v -fcoverage-compilation-dir=/home/alex/code/misc/misc/emscripten_multiple_mains -resource-dir /opt/emscripten-llvm/lib/clang/19 -D EMSCRIPTEN -I third_party/lua -isysroot /home/alex/.emscripten_cache/sysroot -internal-isystem /opt/emscripten-llvm/lib/clang/19/include -internal-isystem /home/alex/.emscripten_cache/sysroot/include/wasm32-emscripten -internal-isystem /home/alex/.emscripten_cache/sysroot/include -Werror=implicit-function-declaration -ferror-limit 19 -fvisibility=default -fgnuc-version=4.2.1 -fskip-odr-check-in-gmf -fignore-exceptions -iwithsysroot/include/fakesdl -iwithsysroot/include/compat -mllvm -combiner-global-alias-analysis=false -mllvm -enable-emscripten-sjlj -mllvm -disable-lsr -o out/obj/loslib.o -x c third_party/lua/loslib.c
+clang -cc1 version 19.0.0git based upon LLVM 19.0.0git default target x86_64-unknown-linux-gnu
+ignoring nonexistent directory "/home/alex/.emscripten_cache/sysroot/include/wasm32-emscripten"
+#include "..." search starts here:
+#include <...> search starts here:
+ third_party/lua
+ /home/alex/.emscripten_cache/sysroot/include/fakesdl
+ /home/alex/.emscripten_cache/sysroot/include/compat
+ /opt/emscripten-llvm/lib/clang/19/include
+ /home/alex/.emscripten_cache/sysroot/include
+End of search list.
++ for lua_src in third_party/lua/*.c
+++ basename third_party/lua/lparser.o
++ obj_out_path=out/obj/lparser.o
++ echo 'Compiling third_party/lua/lparser.c to object out/obj/lparser.o'
+Compiling third_party/lua/lparser.c to object out/obj/lparser.o
++ emcc -v -Ithird_party/lua third_party/lua/lparser.c -c -o out/obj/lparser.o
+ /opt/emscripten-llvm/bin/clang -target wasm32-unknown-emscripten -fignore-exceptions -fvisibility=default -mllvm -combiner-global-alias-analysis=false -mllvm -enable-emscripten-sjlj -mllvm -disable-lsr --sysroot=/home/alex/.emscripten_cache/sysroot -DEMSCRIPTEN -Werror=implicit-function-declaration -Xclang -iwithsysroot/include/fakesdl -Xclang -iwithsysroot/include/compat -v -Ithird_party/lua -c third_party/lua/lparser.c -o out/obj/lparser.o
+clang version 19.0.0git (/startdir/llvm-project 6c7805d5d186a6d1263f90b8033ad85e2d2633d7)
+Target: wasm32-unknown-emscripten
+Thread model: posix
+InstalledDir: /opt/emscripten-llvm/bin
+ (in-process)
+ "/opt/emscripten-llvm/bin/clang-19" -cc1 -triple wasm32-unknown-emscripten -emit-obj -mrelax-all -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name lparser.c -mrelocation-model static -mframe-pointer=none -ffp-contract=on -fno-rounding-math -mconstructor-aliases -target-cpu generic -debugger-tuning=gdb -fdebug-compilation-dir=/home/alex/code/misc/misc/emscripten_multiple_mains -v -fcoverage-compilation-dir=/home/alex/code/misc/misc/emscripten_multiple_mains -resource-dir /opt/emscripten-llvm/lib/clang/19 -D EMSCRIPTEN -I third_party/lua -isysroot /home/alex/.emscripten_cache/sysroot -internal-isystem /opt/emscripten-llvm/lib/clang/19/include -internal-isystem /home/alex/.emscripten_cache/sysroot/include/wasm32-emscripten -internal-isystem /home/alex/.emscripten_cache/sysroot/include -Werror=implicit-function-declaration -ferror-limit 19 -fvisibility=default -fgnuc-version=4.2.1 -fskip-odr-check-in-gmf -fignore-exceptions -iwithsysroot/include/fakesdl -iwithsysroot/include/compat -mllvm -combiner-global-alias-analysis=false -mllvm -enable-emscripten-sjlj -mllvm -disable-lsr -o out/obj/lparser.o -x c third_party/lua/lparser.c
+clang -cc1 version 19.0.0git based upon LLVM 19.0.0git default target x86_64-unknown-linux-gnu
+ignoring nonexistent directory "/home/alex/.emscripten_cache/sysroot/include/wasm32-emscripten"
+#include "..." search starts here:
+#include <...> search starts here:
+ third_party/lua
+ /home/alex/.emscripten_cache/sysroot/include/fakesdl
+ /home/alex/.emscripten_cache/sysroot/include/compat
+ /opt/emscripten-llvm/lib/clang/19/include
+ /home/alex/.emscripten_cache/sysroot/include
+End of search list.
++ for lua_src in third_party/lua/*.c
+++ basename third_party/lua/lstate.o
++ obj_out_path=out/obj/lstate.o
++ echo 'Compiling third_party/lua/lstate.c to object out/obj/lstate.o'
+Compiling third_party/lua/lstate.c to object out/obj/lstate.o
++ emcc -v -Ithird_party/lua third_party/lua/lstate.c -c -o out/obj/lstate.o
+ /opt/emscripten-llvm/bin/clang -target wasm32-unknown-emscripten -fignore-exceptions -fvisibility=default -mllvm -combiner-global-alias-analysis=false -mllvm -enable-emscripten-sjlj -mllvm -disable-lsr --sysroot=/home/alex/.emscripten_cache/sysroot -DEMSCRIPTEN -Werror=implicit-function-declaration -Xclang -iwithsysroot/include/fakesdl -Xclang -iwithsysroot/include/compat -v -Ithird_party/lua -c third_party/lua/lstate.c -o out/obj/lstate.o
+clang version 19.0.0git (/startdir/llvm-project 6c7805d5d186a6d1263f90b8033ad85e2d2633d7)
+Target: wasm32-unknown-emscripten
+Thread model: posix
+InstalledDir: /opt/emscripten-llvm/bin
+ (in-process)
+ "/opt/emscripten-llvm/bin/clang-19" -cc1 -triple wasm32-unknown-emscripten -emit-obj -mrelax-all -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name lstate.c -mrelocation-model static -mframe-pointer=none -ffp-contract=on -fno-rounding-math -mconstructor-aliases -target-cpu generic -debugger-tuning=gdb -fdebug-compilation-dir=/home/alex/code/misc/misc/emscripten_multiple_mains -v -fcoverage-compilation-dir=/home/alex/code/misc/misc/emscripten_multiple_mains -resource-dir /opt/emscripten-llvm/lib/clang/19 -D EMSCRIPTEN -I third_party/lua -isysroot /home/alex/.emscripten_cache/sysroot -internal-isystem /opt/emscripten-llvm/lib/clang/19/include -internal-isystem /home/alex/.emscripten_cache/sysroot/include/wasm32-emscripten -internal-isystem /home/alex/.emscripten_cache/sysroot/include -Werror=implicit-function-declaration -ferror-limit 19 -fvisibility=default -fgnuc-version=4.2.1 -fskip-odr-check-in-gmf -fignore-exceptions -iwithsysroot/include/fakesdl -iwithsysroot/include/compat -mllvm -combiner-global-alias-analysis=false -mllvm -enable-emscripten-sjlj -mllvm -disable-lsr -o out/obj/lstate.o -x c third_party/lua/lstate.c
+clang -cc1 version 19.0.0git based upon LLVM 19.0.0git default target x86_64-unknown-linux-gnu
+ignoring nonexistent directory "/home/alex/.emscripten_cache/sysroot/include/wasm32-emscripten"
+#include "..." search starts here:
+#include <...> search starts here:
+ third_party/lua
+ /home/alex/.emscripten_cache/sysroot/include/fakesdl
+ /home/alex/.emscripten_cache/sysroot/include/compat
+ /opt/emscripten-llvm/lib/clang/19/include
+ /home/alex/.emscripten_cache/sysroot/include
+End of search list.
++ for lua_src in third_party/lua/*.c
+++ basename third_party/lua/lstring.o
++ obj_out_path=out/obj/lstring.o
++ echo 'Compiling third_party/lua/lstring.c to object out/obj/lstring.o'
+Compiling third_party/lua/lstring.c to object out/obj/lstring.o
++ emcc -v -Ithird_party/lua third_party/lua/lstring.c -c -o out/obj/lstring.o
+ /opt/emscripten-llvm/bin/clang -target wasm32-unknown-emscripten -fignore-exceptions -fvisibility=default -mllvm -combiner-global-alias-analysis=false -mllvm -enable-emscripten-sjlj -mllvm -disable-lsr --sysroot=/home/alex/.emscripten_cache/sysroot -DEMSCRIPTEN -Werror=implicit-function-declaration -Xclang -iwithsysroot/include/fakesdl -Xclang -iwithsysroot/include/compat -v -Ithird_party/lua -c third_party/lua/lstring.c -o out/obj/lstring.o
+clang version 19.0.0git (/startdir/llvm-project 6c7805d5d186a6d1263f90b8033ad85e2d2633d7)
+Target: wasm32-unknown-emscripten
+Thread model: posix
+InstalledDir: /opt/emscripten-llvm/bin
+ (in-process)
+ "/opt/emscripten-llvm/bin/clang-19" -cc1 -triple wasm32-unknown-emscripten -emit-obj -mrelax-all -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name lstring.c -mrelocation-model static -mframe-pointer=none -ffp-contract=on -fno-rounding-math -mconstructor-aliases -target-cpu generic -debugger-tuning=gdb -fdebug-compilation-dir=/home/alex/code/misc/misc/emscripten_multiple_mains -v -fcoverage-compilation-dir=/home/alex/code/misc/misc/emscripten_multiple_mains -resource-dir /opt/emscripten-llvm/lib/clang/19 -D EMSCRIPTEN -I third_party/lua -isysroot /home/alex/.emscripten_cache/sysroot -internal-isystem /opt/emscripten-llvm/lib/clang/19/include -internal-isystem /home/alex/.emscripten_cache/sysroot/include/wasm32-emscripten -internal-isystem /home/alex/.emscripten_cache/sysroot/include -Werror=implicit-function-declaration -ferror-limit 19 -fvisibility=default -fgnuc-version=4.2.1 -fskip-odr-check-in-gmf -fignore-exceptions -iwithsysroot/include/fakesdl -iwithsysroot/include/compat -mllvm -combiner-global-alias-analysis=false -mllvm -enable-emscripten-sjlj -mllvm -disable-lsr -o out/obj/lstring.o -x c third_party/lua/lstring.c
+clang -cc1 version 19.0.0git based upon LLVM 19.0.0git default target x86_64-unknown-linux-gnu
+ignoring nonexistent directory "/home/alex/.emscripten_cache/sysroot/include/wasm32-emscripten"
+#include "..." search starts here:
+#include <...> search starts here:
+ third_party/lua
+ /home/alex/.emscripten_cache/sysroot/include/fakesdl
+ /home/alex/.emscripten_cache/sysroot/include/compat
+ /opt/emscripten-llvm/lib/clang/19/include
+ /home/alex/.emscripten_cache/sysroot/include
+End of search list.
++ for lua_src in third_party/lua/*.c
+++ basename third_party/lua/lstrlib.o
++ obj_out_path=out/obj/lstrlib.o
++ echo 'Compiling third_party/lua/lstrlib.c to object out/obj/lstrlib.o'
+Compiling third_party/lua/lstrlib.c to object out/obj/lstrlib.o
++ emcc -v -Ithird_party/lua third_party/lua/lstrlib.c -c -o out/obj/lstrlib.o
+ /opt/emscripten-llvm/bin/clang -target wasm32-unknown-emscripten -fignore-exceptions -fvisibility=default -mllvm -combiner-global-alias-analysis=false -mllvm -enable-emscripten-sjlj -mllvm -disable-lsr --sysroot=/home/alex/.emscripten_cache/sysroot -DEMSCRIPTEN -Werror=implicit-function-declaration -Xclang -iwithsysroot/include/fakesdl -Xclang -iwithsysroot/include/compat -v -Ithird_party/lua -c third_party/lua/lstrlib.c -o out/obj/lstrlib.o
+clang version 19.0.0git (/startdir/llvm-project 6c7805d5d186a6d1263f90b8033ad85e2d2633d7)
+Target: wasm32-unknown-emscripten
+Thread model: posix
+InstalledDir: /opt/emscripten-llvm/bin
+ (in-process)
+ "/opt/emscripten-llvm/bin/clang-19" -cc1 -triple wasm32-unknown-emscripten -emit-obj -mrelax-all -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name lstrlib.c -mrelocation-model static -mframe-pointer=none -ffp-contract=on -fno-rounding-math -mconstructor-aliases -target-cpu generic -debugger-tuning=gdb -fdebug-compilation-dir=/home/alex/code/misc/misc/emscripten_multiple_mains -v -fcoverage-compilation-dir=/home/alex/code/misc/misc/emscripten_multiple_mains -resource-dir /opt/emscripten-llvm/lib/clang/19 -D EMSCRIPTEN -I third_party/lua -isysroot /home/alex/.emscripten_cache/sysroot -internal-isystem /opt/emscripten-llvm/lib/clang/19/include -internal-isystem /home/alex/.emscripten_cache/sysroot/include/wasm32-emscripten -internal-isystem /home/alex/.emscripten_cache/sysroot/include -Werror=implicit-function-declaration -ferror-limit 19 -fvisibility=default -fgnuc-version=4.2.1 -fskip-odr-check-in-gmf -fignore-exceptions -iwithsysroot/include/fakesdl -iwithsysroot/include/compat -mllvm -combiner-global-alias-analysis=false -mllvm -enable-emscripten-sjlj -mllvm -disable-lsr -o out/obj/lstrlib.o -x c third_party/lua/lstrlib.c
+clang -cc1 version 19.0.0git based upon LLVM 19.0.0git default target x86_64-unknown-linux-gnu
+ignoring nonexistent directory "/home/alex/.emscripten_cache/sysroot/include/wasm32-emscripten"
+#include "..." search starts here:
+#include <...> search starts here:
+ third_party/lua
+ /home/alex/.emscripten_cache/sysroot/include/fakesdl
+ /home/alex/.emscripten_cache/sysroot/include/compat
+ /opt/emscripten-llvm/lib/clang/19/include
+ /home/alex/.emscripten_cache/sysroot/include
+End of search list.
++ for lua_src in third_party/lua/*.c
+++ basename third_party/lua/ltable.o
++ obj_out_path=out/obj/ltable.o
++ echo 'Compiling third_party/lua/ltable.c to object out/obj/ltable.o'
+Compiling third_party/lua/ltable.c to object out/obj/ltable.o
++ emcc -v -Ithird_party/lua third_party/lua/ltable.c -c -o out/obj/ltable.o
+ /opt/emscripten-llvm/bin/clang -target wasm32-unknown-emscripten -fignore-exceptions -fvisibility=default -mllvm -combiner-global-alias-analysis=false -mllvm -enable-emscripten-sjlj -mllvm -disable-lsr --sysroot=/home/alex/.emscripten_cache/sysroot -DEMSCRIPTEN -Werror=implicit-function-declaration -Xclang -iwithsysroot/include/fakesdl -Xclang -iwithsysroot/include/compat -v -Ithird_party/lua -c third_party/lua/ltable.c -o out/obj/ltable.o
+clang version 19.0.0git (/startdir/llvm-project 6c7805d5d186a6d1263f90b8033ad85e2d2633d7)
+Target: wasm32-unknown-emscripten
+Thread model: posix
+InstalledDir: /opt/emscripten-llvm/bin
+ (in-process)
+ "/opt/emscripten-llvm/bin/clang-19" -cc1 -triple wasm32-unknown-emscripten -emit-obj -mrelax-all -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name ltable.c -mrelocation-model static -mframe-pointer=none -ffp-contract=on -fno-rounding-math -mconstructor-aliases -target-cpu generic -debugger-tuning=gdb -fdebug-compilation-dir=/home/alex/code/misc/misc/emscripten_multiple_mains -v -fcoverage-compilation-dir=/home/alex/code/misc/misc/emscripten_multiple_mains -resource-dir /opt/emscripten-llvm/lib/clang/19 -D EMSCRIPTEN -I third_party/lua -isysroot /home/alex/.emscripten_cache/sysroot -internal-isystem /opt/emscripten-llvm/lib/clang/19/include -internal-isystem /home/alex/.emscripten_cache/sysroot/include/wasm32-emscripten -internal-isystem /home/alex/.emscripten_cache/sysroot/include -Werror=implicit-function-declaration -ferror-limit 19 -fvisibility=default -fgnuc-version=4.2.1 -fskip-odr-check-in-gmf -fignore-exceptions -iwithsysroot/include/fakesdl -iwithsysroot/include/compat -mllvm -combiner-global-alias-analysis=false -mllvm -enable-emscripten-sjlj -mllvm -disable-lsr -o out/obj/ltable.o -x c third_party/lua/ltable.c
+clang -cc1 version 19.0.0git based upon LLVM 19.0.0git default target x86_64-unknown-linux-gnu
+ignoring nonexistent directory "/home/alex/.emscripten_cache/sysroot/include/wasm32-emscripten"
+#include "..." search starts here:
+#include <...> search starts here:
+ third_party/lua
+ /home/alex/.emscripten_cache/sysroot/include/fakesdl
+ /home/alex/.emscripten_cache/sysroot/include/compat
+ /opt/emscripten-llvm/lib/clang/19/include
+ /home/alex/.emscripten_cache/sysroot/include
+End of search list.
++ for lua_src in third_party/lua/*.c
+++ basename third_party/lua/ltablib.o
++ obj_out_path=out/obj/ltablib.o
++ echo 'Compiling third_party/lua/ltablib.c to object out/obj/ltablib.o'
+Compiling third_party/lua/ltablib.c to object out/obj/ltablib.o
++ emcc -v -Ithird_party/lua third_party/lua/ltablib.c -c -o out/obj/ltablib.o
+ /opt/emscripten-llvm/bin/clang -target wasm32-unknown-emscripten -fignore-exceptions -fvisibility=default -mllvm -combiner-global-alias-analysis=false -mllvm -enable-emscripten-sjlj -mllvm -disable-lsr --sysroot=/home/alex/.emscripten_cache/sysroot -DEMSCRIPTEN -Werror=implicit-function-declaration -Xclang -iwithsysroot/include/fakesdl -Xclang -iwithsysroot/include/compat -v -Ithird_party/lua -c third_party/lua/ltablib.c -o out/obj/ltablib.o
+clang version 19.0.0git (/startdir/llvm-project 6c7805d5d186a6d1263f90b8033ad85e2d2633d7)
+Target: wasm32-unknown-emscripten
+Thread model: posix
+InstalledDir: /opt/emscripten-llvm/bin
+ (in-process)
+ "/opt/emscripten-llvm/bin/clang-19" -cc1 -triple wasm32-unknown-emscripten -emit-obj -mrelax-all -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name ltablib.c -mrelocation-model static -mframe-pointer=none -ffp-contract=on -fno-rounding-math -mconstructor-aliases -target-cpu generic -debugger-tuning=gdb -fdebug-compilation-dir=/home/alex/code/misc/misc/emscripten_multiple_mains -v -fcoverage-compilation-dir=/home/alex/code/misc/misc/emscripten_multiple_mains -resource-dir /opt/emscripten-llvm/lib/clang/19 -D EMSCRIPTEN -I third_party/lua -isysroot /home/alex/.emscripten_cache/sysroot -internal-isystem /opt/emscripten-llvm/lib/clang/19/include -internal-isystem /home/alex/.emscripten_cache/sysroot/include/wasm32-emscripten -internal-isystem /home/alex/.emscripten_cache/sysroot/include -Werror=implicit-function-declaration -ferror-limit 19 -fvisibility=default -fgnuc-version=4.2.1 -fskip-odr-check-in-gmf -fignore-exceptions -iwithsysroot/include/fakesdl -iwithsysroot/include/compat -mllvm -combiner-global-alias-analysis=false -mllvm -enable-emscripten-sjlj -mllvm -disable-lsr -o out/obj/ltablib.o -x c third_party/lua/ltablib.c
+clang -cc1 version 19.0.0git based upon LLVM 19.0.0git default target x86_64-unknown-linux-gnu
+ignoring nonexistent directory "/home/alex/.emscripten_cache/sysroot/include/wasm32-emscripten"
+#include "..." search starts here:
+#include <...> search starts here:
+ third_party/lua
+ /home/alex/.emscripten_cache/sysroot/include/fakesdl
+ /home/alex/.emscripten_cache/sysroot/include/compat
+ /opt/emscripten-llvm/lib/clang/19/include
+ /home/alex/.emscripten_cache/sysroot/include
+End of search list.
++ for lua_src in third_party/lua/*.c
+++ basename third_party/lua/ltests.o
++ obj_out_path=out/obj/ltests.o
++ echo 'Compiling third_party/lua/ltests.c to object out/obj/ltests.o'
+Compiling third_party/lua/ltests.c to object out/obj/ltests.o
++ emcc -v -Ithird_party/lua third_party/lua/ltests.c -c -o out/obj/ltests.o
+ /opt/emscripten-llvm/bin/clang -target wasm32-unknown-emscripten -fignore-exceptions -fvisibility=default -mllvm -combiner-global-alias-analysis=false -mllvm -enable-emscripten-sjlj -mllvm -disable-lsr --sysroot=/home/alex/.emscripten_cache/sysroot -DEMSCRIPTEN -Werror=implicit-function-declaration -Xclang -iwithsysroot/include/fakesdl -Xclang -iwithsysroot/include/compat -v -Ithird_party/lua -c third_party/lua/ltests.c -o out/obj/ltests.o
+clang version 19.0.0git (/startdir/llvm-project 6c7805d5d186a6d1263f90b8033ad85e2d2633d7)
+Target: wasm32-unknown-emscripten
+Thread model: posix
+InstalledDir: /opt/emscripten-llvm/bin
+ (in-process)
+ "/opt/emscripten-llvm/bin/clang-19" -cc1 -triple wasm32-unknown-emscripten -emit-obj -mrelax-all -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name ltests.c -mrelocation-model static -mframe-pointer=none -ffp-contract=on -fno-rounding-math -mconstructor-aliases -target-cpu generic -debugger-tuning=gdb -fdebug-compilation-dir=/home/alex/code/misc/misc/emscripten_multiple_mains -v -fcoverage-compilation-dir=/home/alex/code/misc/misc/emscripten_multiple_mains -resource-dir /opt/emscripten-llvm/lib/clang/19 -D EMSCRIPTEN -I third_party/lua -isysroot /home/alex/.emscripten_cache/sysroot -internal-isystem /opt/emscripten-llvm/lib/clang/19/include -internal-isystem /home/alex/.emscripten_cache/sysroot/include/wasm32-emscripten -internal-isystem /home/alex/.emscripten_cache/sysroot/include -Werror=implicit-function-declaration -ferror-limit 19 -fvisibility=default -fgnuc-version=4.2.1 -fskip-odr-check-in-gmf -fignore-exceptions -iwithsysroot/include/fakesdl -iwithsysroot/include/compat -mllvm -combiner-global-alias-analysis=false -mllvm -enable-emscripten-sjlj -mllvm -disable-lsr -o out/obj/ltests.o -x c third_party/lua/ltests.c
+clang -cc1 version 19.0.0git based upon LLVM 19.0.0git default target x86_64-unknown-linux-gnu
+ignoring nonexistent directory "/home/alex/.emscripten_cache/sysroot/include/wasm32-emscripten"
+#include "..." search starts here:
+#include <...> search starts here:
+ third_party/lua
+ /home/alex/.emscripten_cache/sysroot/include/fakesdl
+ /home/alex/.emscripten_cache/sysroot/include/compat
+ /opt/emscripten-llvm/lib/clang/19/include
+ /home/alex/.emscripten_cache/sysroot/include
+End of search list.
++ for lua_src in third_party/lua/*.c
+++ basename third_party/lua/ltm.o
++ obj_out_path=out/obj/ltm.o
++ echo 'Compiling third_party/lua/ltm.c to object out/obj/ltm.o'
+Compiling third_party/lua/ltm.c to object out/obj/ltm.o
++ emcc -v -Ithird_party/lua third_party/lua/ltm.c -c -o out/obj/ltm.o
+ /opt/emscripten-llvm/bin/clang -target wasm32-unknown-emscripten -fignore-exceptions -fvisibility=default -mllvm -combiner-global-alias-analysis=false -mllvm -enable-emscripten-sjlj -mllvm -disable-lsr --sysroot=/home/alex/.emscripten_cache/sysroot -DEMSCRIPTEN -Werror=implicit-function-declaration -Xclang -iwithsysroot/include/fakesdl -Xclang -iwithsysroot/include/compat -v -Ithird_party/lua -c third_party/lua/ltm.c -o out/obj/ltm.o
+clang version 19.0.0git (/startdir/llvm-project 6c7805d5d186a6d1263f90b8033ad85e2d2633d7)
+Target: wasm32-unknown-emscripten
+Thread model: posix
+InstalledDir: /opt/emscripten-llvm/bin
+ (in-process)
+ "/opt/emscripten-llvm/bin/clang-19" -cc1 -triple wasm32-unknown-emscripten -emit-obj -mrelax-all -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name ltm.c -mrelocation-model static -mframe-pointer=none -ffp-contract=on -fno-rounding-math -mconstructor-aliases -target-cpu generic -debugger-tuning=gdb -fdebug-compilation-dir=/home/alex/code/misc/misc/emscripten_multiple_mains -v -fcoverage-compilation-dir=/home/alex/code/misc/misc/emscripten_multiple_mains -resource-dir /opt/emscripten-llvm/lib/clang/19 -D EMSCRIPTEN -I third_party/lua -isysroot /home/alex/.emscripten_cache/sysroot -internal-isystem /opt/emscripten-llvm/lib/clang/19/include -internal-isystem /home/alex/.emscripten_cache/sysroot/include/wasm32-emscripten -internal-isystem /home/alex/.emscripten_cache/sysroot/include -Werror=implicit-function-declaration -ferror-limit 19 -fvisibility=default -fgnuc-version=4.2.1 -fskip-odr-check-in-gmf -fignore-exceptions -iwithsysroot/include/fakesdl -iwithsysroot/include/compat -mllvm -combiner-global-alias-analysis=false -mllvm -enable-emscripten-sjlj -mllvm -disable-lsr -o out/obj/ltm.o -x c third_party/lua/ltm.c
+clang -cc1 version 19.0.0git based upon LLVM 19.0.0git default target x86_64-unknown-linux-gnu
+ignoring nonexistent directory "/home/alex/.emscripten_cache/sysroot/include/wasm32-emscripten"
+#include "..." search starts here:
+#include <...> search starts here:
+ third_party/lua
+ /home/alex/.emscripten_cache/sysroot/include/fakesdl
+ /home/alex/.emscripten_cache/sysroot/include/compat
+ /opt/emscripten-llvm/lib/clang/19/include
+ /home/alex/.emscripten_cache/sysroot/include
+End of search list.
++ for lua_src in third_party/lua/*.c
+++ basename third_party/lua/lua.o
++ obj_out_path=out/obj/lua.o
++ echo 'Compiling third_party/lua/lua.c to object out/obj/lua.o'
+Compiling third_party/lua/lua.c to object out/obj/lua.o
++ emcc -v -Ithird_party/lua third_party/lua/lua.c -c -o out/obj/lua.o
+ /opt/emscripten-llvm/bin/clang -target wasm32-unknown-emscripten -fignore-exceptions -fvisibility=default -mllvm -combiner-global-alias-analysis=false -mllvm -enable-emscripten-sjlj -mllvm -disable-lsr --sysroot=/home/alex/.emscripten_cache/sysroot -DEMSCRIPTEN -Werror=implicit-function-declaration -Xclang -iwithsysroot/include/fakesdl -Xclang -iwithsysroot/include/compat -v -Ithird_party/lua -c third_party/lua/lua.c -o out/obj/lua.o
+clang version 19.0.0git (/startdir/llvm-project 6c7805d5d186a6d1263f90b8033ad85e2d2633d7)
+Target: wasm32-unknown-emscripten
+Thread model: posix
+InstalledDir: /opt/emscripten-llvm/bin
+ (in-process)
+ "/opt/emscripten-llvm/bin/clang-19" -cc1 -triple wasm32-unknown-emscripten -emit-obj -mrelax-all -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name lua.c -mrelocation-model static -mframe-pointer=none -ffp-contract=on -fno-rounding-math -mconstructor-aliases -target-cpu generic -debugger-tuning=gdb -fdebug-compilation-dir=/home/alex/code/misc/misc/emscripten_multiple_mains -v -fcoverage-compilation-dir=/home/alex/code/misc/misc/emscripten_multiple_mains -resource-dir /opt/emscripten-llvm/lib/clang/19 -D EMSCRIPTEN -I third_party/lua -isysroot /home/alex/.emscripten_cache/sysroot -internal-isystem /opt/emscripten-llvm/lib/clang/19/include -internal-isystem /home/alex/.emscripten_cache/sysroot/include/wasm32-emscripten -internal-isystem /home/alex/.emscripten_cache/sysroot/include -Werror=implicit-function-declaration -ferror-limit 19 -fvisibility=default -fgnuc-version=4.2.1 -fskip-odr-check-in-gmf -fignore-exceptions -iwithsysroot/include/fakesdl -iwithsysroot/include/compat -mllvm -combiner-global-alias-analysis=false -mllvm -enable-emscripten-sjlj -mllvm -disable-lsr -o out/obj/lua.o -x c third_party/lua/lua.c
+clang -cc1 version 19.0.0git based upon LLVM 19.0.0git default target x86_64-unknown-linux-gnu
+ignoring nonexistent directory "/home/alex/.emscripten_cache/sysroot/include/wasm32-emscripten"
+#include "..." search starts here:
+#include <...> search starts here:
+ third_party/lua
+ /home/alex/.emscripten_cache/sysroot/include/fakesdl
+ /home/alex/.emscripten_cache/sysroot/include/compat
+ /opt/emscripten-llvm/lib/clang/19/include
+ /home/alex/.emscripten_cache/sysroot/include
+End of search list.
++ for lua_src in third_party/lua/*.c
+++ basename third_party/lua/lundump.o
++ obj_out_path=out/obj/lundump.o
++ echo 'Compiling third_party/lua/lundump.c to object out/obj/lundump.o'
+Compiling third_party/lua/lundump.c to object out/obj/lundump.o
++ emcc -v -Ithird_party/lua third_party/lua/lundump.c -c -o out/obj/lundump.o
+ /opt/emscripten-llvm/bin/clang -target wasm32-unknown-emscripten -fignore-exceptions -fvisibility=default -mllvm -combiner-global-alias-analysis=false -mllvm -enable-emscripten-sjlj -mllvm -disable-lsr --sysroot=/home/alex/.emscripten_cache/sysroot -DEMSCRIPTEN -Werror=implicit-function-declaration -Xclang -iwithsysroot/include/fakesdl -Xclang -iwithsysroot/include/compat -v -Ithird_party/lua -c third_party/lua/lundump.c -o out/obj/lundump.o
+clang version 19.0.0git (/startdir/llvm-project 6c7805d5d186a6d1263f90b8033ad85e2d2633d7)
+Target: wasm32-unknown-emscripten
+Thread model: posix
+InstalledDir: /opt/emscripten-llvm/bin
+ (in-process)
+ "/opt/emscripten-llvm/bin/clang-19" -cc1 -triple wasm32-unknown-emscripten -emit-obj -mrelax-all -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name lundump.c -mrelocation-model static -mframe-pointer=none -ffp-contract=on -fno-rounding-math -mconstructor-aliases -target-cpu generic -debugger-tuning=gdb -fdebug-compilation-dir=/home/alex/code/misc/misc/emscripten_multiple_mains -v -fcoverage-compilation-dir=/home/alex/code/misc/misc/emscripten_multiple_mains -resource-dir /opt/emscripten-llvm/lib/clang/19 -D EMSCRIPTEN -I third_party/lua -isysroot /home/alex/.emscripten_cache/sysroot -internal-isystem /opt/emscripten-llvm/lib/clang/19/include -internal-isystem /home/alex/.emscripten_cache/sysroot/include/wasm32-emscripten -internal-isystem /home/alex/.emscripten_cache/sysroot/include -Werror=implicit-function-declaration -ferror-limit 19 -fvisibility=default -fgnuc-version=4.2.1 -fskip-odr-check-in-gmf -fignore-exceptions -iwithsysroot/include/fakesdl -iwithsysroot/include/compat -mllvm -combiner-global-alias-analysis=false -mllvm -enable-emscripten-sjlj -mllvm -disable-lsr -o out/obj/lundump.o -x c third_party/lua/lundump.c
+clang -cc1 version 19.0.0git based upon LLVM 19.0.0git default target x86_64-unknown-linux-gnu
+ignoring nonexistent directory "/home/alex/.emscripten_cache/sysroot/include/wasm32-emscripten"
+#include "..." search starts here:
+#include <...> search starts here:
+ third_party/lua
+ /home/alex/.emscripten_cache/sysroot/include/fakesdl
+ /home/alex/.emscripten_cache/sysroot/include/compat
+ /opt/emscripten-llvm/lib/clang/19/include
+ /home/alex/.emscripten_cache/sysroot/include
+End of search list.
++ for lua_src in third_party/lua/*.c
+++ basename third_party/lua/lutf8lib.o
++ obj_out_path=out/obj/lutf8lib.o
++ echo 'Compiling third_party/lua/lutf8lib.c to object out/obj/lutf8lib.o'
+Compiling third_party/lua/lutf8lib.c to object out/obj/lutf8lib.o
++ emcc -v -Ithird_party/lua third_party/lua/lutf8lib.c -c -o out/obj/lutf8lib.o
+ /opt/emscripten-llvm/bin/clang -target wasm32-unknown-emscripten -fignore-exceptions -fvisibility=default -mllvm -combiner-global-alias-analysis=false -mllvm -enable-emscripten-sjlj -mllvm -disable-lsr --sysroot=/home/alex/.emscripten_cache/sysroot -DEMSCRIPTEN -Werror=implicit-function-declaration -Xclang -iwithsysroot/include/fakesdl -Xclang -iwithsysroot/include/compat -v -Ithird_party/lua -c third_party/lua/lutf8lib.c -o out/obj/lutf8lib.o
+clang version 19.0.0git (/startdir/llvm-project 6c7805d5d186a6d1263f90b8033ad85e2d2633d7)
+Target: wasm32-unknown-emscripten
+Thread model: posix
+InstalledDir: /opt/emscripten-llvm/bin
+ (in-process)
+ "/opt/emscripten-llvm/bin/clang-19" -cc1 -triple wasm32-unknown-emscripten -emit-obj -mrelax-all -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name lutf8lib.c -mrelocation-model static -mframe-pointer=none -ffp-contract=on -fno-rounding-math -mconstructor-aliases -target-cpu generic -debugger-tuning=gdb -fdebug-compilation-dir=/home/alex/code/misc/misc/emscripten_multiple_mains -v -fcoverage-compilation-dir=/home/alex/code/misc/misc/emscripten_multiple_mains -resource-dir /opt/emscripten-llvm/lib/clang/19 -D EMSCRIPTEN -I third_party/lua -isysroot /home/alex/.emscripten_cache/sysroot -internal-isystem /opt/emscripten-llvm/lib/clang/19/include -internal-isystem /home/alex/.emscripten_cache/sysroot/include/wasm32-emscripten -internal-isystem /home/alex/.emscripten_cache/sysroot/include -Werror=implicit-function-declaration -ferror-limit 19 -fvisibility=default -fgnuc-version=4.2.1 -fskip-odr-check-in-gmf -fignore-exceptions -iwithsysroot/include/fakesdl -iwithsysroot/include/compat -mllvm -combiner-global-alias-analysis=false -mllvm -enable-emscripten-sjlj -mllvm -disable-lsr -o out/obj/lutf8lib.o -x c third_party/lua/lutf8lib.c
+clang -cc1 version 19.0.0git based upon LLVM 19.0.0git default target x86_64-unknown-linux-gnu
+ignoring nonexistent directory "/home/alex/.emscripten_cache/sysroot/include/wasm32-emscripten"
+#include "..." search starts here:
+#include <...> search starts here:
+ third_party/lua
+ /home/alex/.emscripten_cache/sysroot/include/fakesdl
+ /home/alex/.emscripten_cache/sysroot/include/compat
+ /opt/emscripten-llvm/lib/clang/19/include
+ /home/alex/.emscripten_cache/sysroot/include
+End of search list.
++ for lua_src in third_party/lua/*.c
+++ basename third_party/lua/lvm.o
++ obj_out_path=out/obj/lvm.o
++ echo 'Compiling third_party/lua/lvm.c to object out/obj/lvm.o'
+Compiling third_party/lua/lvm.c to object out/obj/lvm.o
++ emcc -v -Ithird_party/lua third_party/lua/lvm.c -c -o out/obj/lvm.o
+ /opt/emscripten-llvm/bin/clang -target wasm32-unknown-emscripten -fignore-exceptions -fvisibility=default -mllvm -combiner-global-alias-analysis=false -mllvm -enable-emscripten-sjlj -mllvm -disable-lsr --sysroot=/home/alex/.emscripten_cache/sysroot -DEMSCRIPTEN -Werror=implicit-function-declaration -Xclang -iwithsysroot/include/fakesdl -Xclang -iwithsysroot/include/compat -v -Ithird_party/lua -c third_party/lua/lvm.c -o out/obj/lvm.o
+clang version 19.0.0git (/startdir/llvm-project 6c7805d5d186a6d1263f90b8033ad85e2d2633d7)
+Target: wasm32-unknown-emscripten
+Thread model: posix
+InstalledDir: /opt/emscripten-llvm/bin
+ (in-process)
+ "/opt/emscripten-llvm/bin/clang-19" -cc1 -triple wasm32-unknown-emscripten -emit-obj -mrelax-all -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name lvm.c -mrelocation-model static -mframe-pointer=none -ffp-contract=on -fno-rounding-math -mconstructor-aliases -target-cpu generic -debugger-tuning=gdb -fdebug-compilation-dir=/home/alex/code/misc/misc/emscripten_multiple_mains -v -fcoverage-compilation-dir=/home/alex/code/misc/misc/emscripten_multiple_mains -resource-dir /opt/emscripten-llvm/lib/clang/19 -D EMSCRIPTEN -I third_party/lua -isysroot /home/alex/.emscripten_cache/sysroot -internal-isystem /opt/emscripten-llvm/lib/clang/19/include -internal-isystem /home/alex/.emscripten_cache/sysroot/include/wasm32-emscripten -internal-isystem /home/alex/.emscripten_cache/sysroot/include -Werror=implicit-function-declaration -ferror-limit 19 -fvisibility=default -fgnuc-version=4.2.1 -fskip-odr-check-in-gmf -fignore-exceptions -iwithsysroot/include/fakesdl -iwithsysroot/include/compat -mllvm -combiner-global-alias-analysis=false -mllvm -enable-emscripten-sjlj -mllvm -disable-lsr -o out/obj/lvm.o -x c third_party/lua/lvm.c
+clang -cc1 version 19.0.0git based upon LLVM 19.0.0git default target x86_64-unknown-linux-gnu
+ignoring nonexistent directory "/home/alex/.emscripten_cache/sysroot/include/wasm32-emscripten"
+#include "..." search starts here:
+#include <...> search starts here:
+ third_party/lua
+ /home/alex/.emscripten_cache/sysroot/include/fakesdl
+ /home/alex/.emscripten_cache/sysroot/include/compat
+ /opt/emscripten-llvm/lib/clang/19/include
+ /home/alex/.emscripten_cache/sysroot/include
+End of search list.
++ for lua_src in third_party/lua/*.c
+++ basename third_party/lua/lzio.o
++ obj_out_path=out/obj/lzio.o
++ echo 'Compiling third_party/lua/lzio.c to object out/obj/lzio.o'
+Compiling third_party/lua/lzio.c to object out/obj/lzio.o
++ emcc -v -Ithird_party/lua third_party/lua/lzio.c -c -o out/obj/lzio.o
+ /opt/emscripten-llvm/bin/clang -target wasm32-unknown-emscripten -fignore-exceptions -fvisibility=default -mllvm -combiner-global-alias-analysis=false -mllvm -enable-emscripten-sjlj -mllvm -disable-lsr --sysroot=/home/alex/.emscripten_cache/sysroot -DEMSCRIPTEN -Werror=implicit-function-declaration -Xclang -iwithsysroot/include/fakesdl -Xclang -iwithsysroot/include/compat -v -Ithird_party/lua -c third_party/lua/lzio.c -o out/obj/lzio.o
+clang version 19.0.0git (/startdir/llvm-project 6c7805d5d186a6d1263f90b8033ad85e2d2633d7)
+Target: wasm32-unknown-emscripten
+Thread model: posix
+InstalledDir: /opt/emscripten-llvm/bin
+ (in-process)
+ "/opt/emscripten-llvm/bin/clang-19" -cc1 -triple wasm32-unknown-emscripten -emit-obj -mrelax-all -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name lzio.c -mrelocation-model static -mframe-pointer=none -ffp-contract=on -fno-rounding-math -mconstructor-aliases -target-cpu generic -debugger-tuning=gdb -fdebug-compilation-dir=/home/alex/code/misc/misc/emscripten_multiple_mains -v -fcoverage-compilation-dir=/home/alex/code/misc/misc/emscripten_multiple_mains -resource-dir /opt/emscripten-llvm/lib/clang/19 -D EMSCRIPTEN -I third_party/lua -isysroot /home/alex/.emscripten_cache/sysroot -internal-isystem /opt/emscripten-llvm/lib/clang/19/include -internal-isystem /home/alex/.emscripten_cache/sysroot/include/wasm32-emscripten -internal-isystem /home/alex/.emscripten_cache/sysroot/include -Werror=implicit-function-declaration -ferror-limit 19 -fvisibility=default -fgnuc-version=4.2.1 -fskip-odr-check-in-gmf -fignore-exceptions -iwithsysroot/include/fakesdl -iwithsysroot/include/compat -mllvm -combiner-global-alias-analysis=false -mllvm -enable-emscripten-sjlj -mllvm -disable-lsr -o out/obj/lzio.o -x c third_party/lua/lzio.c
+clang -cc1 version 19.0.0git based upon LLVM 19.0.0git default target x86_64-unknown-linux-gnu
+ignoring nonexistent directory "/home/alex/.emscripten_cache/sysroot/include/wasm32-emscripten"
+#include "..." search starts here:
+#include <...> search starts here:
+ third_party/lua
+ /home/alex/.emscripten_cache/sysroot/include/fakesdl
+ /home/alex/.emscripten_cache/sysroot/include/compat
+ /opt/emscripten-llvm/lib/clang/19/include
+ /home/alex/.emscripten_cache/sysroot/include
+End of search list.
++ echo 'Building out/libmylib.a from objects in out/obj/*.o'
+Building out/libmylib.a from objects in out/obj/*.o
++ emar rcsv out/libmy_lib.a out/obj/lapi.o out/obj/lauxlib.o out/obj/lbaselib.o out/obj/lcode.o out/obj/lcorolib.o out/obj/lctype.o out/obj/ldblib.o out/obj/ldebug.o out/obj/ldo.o out/obj/ldump.o out/obj/lfunc.o out/obj/lgc.o out/obj/linit.o out/obj/liolib.o out/obj/llex.o out/obj/lmathlib.o out/obj/lmem.o out/obj/loadlib.o out/obj/lobject.o out/obj/lopcodes.o out/obj/loslib.o out/obj/lparser.o out/obj/lstate.o out/obj/lstring.o out/obj/lstrlib.o out/obj/ltable.o out/obj/ltablib.o out/obj/ltests.o out/obj/ltm.o out/obj/lua.o out/obj/lundump.o out/obj/lutf8lib.o out/obj/lvm.o out/obj/lzio.o
++ echo 'Building out/my_exec.js from:'
+Building out/my_exec.js from:
++ echo '    * out/libmylib.a (includes lua'\''s main function) and'
+    * out/libmylib.a (includes lua's main function) and
++ echo '    * test.c (also defines a main function)'
+    * test.c (also defines a main function)
++ emcc -v -Wall -Werror -Wl,--undefined,error -Wno-undef test.c -Lout/ -lmy_lib -o out/my_exec.js
+ /opt/emscripten-llvm/bin/clang -target wasm32-unknown-emscripten -fignore-exceptions -fvisibility=default -mllvm -combiner-global-alias-analysis=false -mllvm -enable-emscripten-sjlj -mllvm -disable-lsr --sysroot=/home/alex/.emscripten_cache/sysroot -DEMSCRIPTEN -Werror=implicit-function-declaration -Xclang -iwithsysroot/include/fakesdl -Xclang -iwithsysroot/include/compat -v -Wall -Werror -Wno-undef test.c -c -o /tmp/emscripten_temp_23phxdw4/test_0.o
+clang version 19.0.0git (/startdir/llvm-project 6c7805d5d186a6d1263f90b8033ad85e2d2633d7)
+Target: wasm32-unknown-emscripten
+Thread model: posix
+InstalledDir: /opt/emscripten-llvm/bin
+ (in-process)
+ "/opt/emscripten-llvm/bin/clang-19" -cc1 -triple wasm32-unknown-emscripten -emit-obj -mrelax-all -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name test.c -mrelocation-model static -mframe-pointer=none -ffp-contract=on -fno-rounding-math -mconstructor-aliases -target-cpu generic -debugger-tuning=gdb -fdebug-compilation-dir=/home/alex/code/misc/misc/emscripten_multiple_mains -v -fcoverage-compilation-dir=/home/alex/code/misc/misc/emscripten_multiple_mains -resource-dir /opt/emscripten-llvm/lib/clang/19 -D EMSCRIPTEN -isysroot /home/alex/.emscripten_cache/sysroot -internal-isystem /opt/emscripten-llvm/lib/clang/19/include -internal-isystem /home/alex/.emscripten_cache/sysroot/include/wasm32-emscripten -internal-isystem /home/alex/.emscripten_cache/sysroot/include -Werror=implicit-function-declaration -Wall -Werror -Wno-undef -ferror-limit 19 -fvisibility=default -fgnuc-version=4.2.1 -fskip-odr-check-in-gmf -fignore-exceptions -iwithsysroot/include/fakesdl -iwithsysroot/include/compat -mllvm -combiner-global-alias-analysis=false -mllvm -enable-emscripten-sjlj -mllvm -disable-lsr -o /tmp/emscripten_temp_23phxdw4/test_0.o -x c test.c
+clang -cc1 version 19.0.0git based upon LLVM 19.0.0git default target x86_64-unknown-linux-gnu
+ignoring nonexistent directory "/home/alex/.emscripten_cache/sysroot/include/wasm32-emscripten"
+#include "..." search starts here:
+#include <...> search starts here:
+ /home/alex/.emscripten_cache/sysroot/include/fakesdl
+ /home/alex/.emscripten_cache/sysroot/include/compat
+ /opt/emscripten-llvm/lib/clang/19/include
+ /home/alex/.emscripten_cache/sysroot/include
+End of search list.
+ /opt/emscripten-llvm/bin/clang --version
+ /opt/emscripten-llvm/bin/wasm-ld -o out/my_exec.wasm --undefined error /tmp/emscripten_temp_23phxdw4/test_0.o -Lout/ out/libmy_lib.a -L/home/alex/.emscripten_cache/sysroot/lib/wasm32-emscripten -lGL-getprocaddr -lal -lhtml5 -lstubs-debug -lnoexit -lc-debug -ldlmalloc -lcompiler_rt -lc++-noexcept -lc++abi-debug-noexcept -lsockets -mllvm -combiner-global-alias-analysis=false -mllvm -enable-emscripten-sjlj -mllvm -disable-lsr /tmp/tmpq9o76uj1libemscripten_js_symbols.so --strip-debug --export=emscripten_stack_get_end --export=emscripten_stack_get_free --export=emscripten_stack_get_base --export=emscripten_stack_get_current --export=emscripten_stack_init --export=stackAlloc --export=stackSave --export=stackRestore --export=__get_temp_ret --export=__set_temp_ret --export=__wasm_call_ctors --export-if-defined=__start_em_asm --export-if-defined=__stop_em_asm --export-if-defined=__start_em_lib_deps --export-if-defined=__stop_em_lib_deps --export-if-defined=__start_em_js --export-if-defined=__stop_em_js --export-if-defined=main --export-if-defined=__main_argc_argv --export-if-defined=fflush --export-table -z stack-size=65536 --initial-memory=16777216 --max-memory=16777216 --no-entry --stack-first --table-base=1
+ /opt/emscripten-llvm/bin/llvm-objcopy out/my_exec.wasm out/my_exec.wasm --remove-section=.debug* --remove-section=producers
+ /usr/bin/wasm-emscripten-finalize --dyncalls-i64 --pass-arg=legalize-js-interface-exported-helpers out/my_exec.wasm -o out/my_exec.wasm --detect-features
+ /usr/bin/node /usr/lib/emscripten/src/compiler.mjs /tmp/tmp5mbzck5z.json
