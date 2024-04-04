@@ -12,7 +12,7 @@ mkdir -p out/obj
 
 set -eux
 
-FLAGS=-g
+FLAGS="-g"
 #FLAGS=--profiling-funcs
 
 # It seems that none of emscripten/clang/gcc raise an error for this, at least on my system.
@@ -30,14 +30,15 @@ LIBS=
 #AR=ar
 #LIBS=-lm
 
-# Build each Lua source file to an object
-# Note that lua.c defines a main function.
-for lua_src in third_party/lua/*.c; do
-	obj_out_path=out/obj/$(basename ${lua_src%.*}.o)
-	echo "Compiling $lua_src to object $obj_out_path"
-	${CC} -v ${FLAGS} \
+#lib_src=third_party/lua/*.c
+lib_src=test_lib.c
+# Build each source file to an object
+for lib_src in $lib_src; do
+	obj_out_path=out/obj/$(basename ${lib_src%.*}.o)
+	echo "Compiling $lib_src to object $obj_out_path"
+	${CC} ${FLAGS} \
 		'-Ithird_party/lua' \
-		$lua_src \
+		$lib_src \
 		-c \
 		-o $obj_out_path
 done
@@ -50,10 +51,10 @@ ${AR} rcsv out/libmy_lib.a out/obj/*.o
 # linking with libmy_lib.a created earlier (which defines a main function), and
 # including the additional main function defined in test.c.
 echo "Building out/my_exec.js from:"
-echo "    * out/libmylib.a (includes lua's main function) and"
+echo "    * out/libmylib.a (includes a main function) and"
 echo "    * test.c (also defines a main function)"
 ${CC} ${FLAGS} \
-	-v \
+	\
 	-Wall \
 	-Werror \
 	-Wl,--undefined,error \
@@ -63,5 +64,3 @@ ${CC} ${FLAGS} \
 	-lmy_lib \
 	${LIBS} \
 	-o out/my_exec.js
-
-#	-Wl,--no-undefined \
