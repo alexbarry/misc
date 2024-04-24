@@ -1,0 +1,89 @@
+<!doctype html>
+<title>Example Matrix Widget</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js"></script>
+<script src="utils.js"></script>
+
+<h1>Example Matrix Widget</h1>
+
+<p>This page should be added as a matrix widget by running:</p>
+<pre>/addwidget https://alexbarry.github.io/misc/matrix-widget-test/#/?widgetId=$matrix_widget_id&userId=$matrix_user_id</pre>
+
+<input id="msg_input" placeholder="Enter a message here to send over the widget API"></input> 
+<button id="btn_submit_input">Submit</button>
+
+<pre id="output">
+Initializing...
+</pre>
+
+<script>
+require.config({
+	paths: {
+		"mxwidgets": "https://unpkg.com/matrix-widget-api@1.6.0/dist/api"
+	}
+});
+
+require(['mxwidgets'], (mxwidgets) => {
+const output_elem = document.getElementById("output");
+function log(msg) {
+	console.log(msg);
+	output_elem.innerText += msg + "\n";
+}
+
+const qs = parseFragment();
+const widgetId = assertParam(qs, 'widgetId');
+const userId   = assertParam(qs, 'userId');
+
+log(`WidgetId is "${widgetId}"`);
+log(`userId is "${userId}"`);
+
+//const MY_EVENT_NAME = "com.example.matrix-widget-example-msg";
+const widgetApi = new mxwidgets.WidgetApi(widgetId);
+
+//widgetApi.requestCapabilityToReceiveState("m.room.member");
+widgetApi.requestCapabilityToReceiveEvent("m.room.message");
+widgetApi.requestCapabilityToSendEvent("m.room.message");
+
+//widgetApi.requestCapabilityToReceiveEvent(MY_EVENT_NAME);
+//widgetApi.requestCapabilityToSendEvent(MY_EVENT_NAME);
+
+widgetApi.on("preparing", () => {
+	log("widget API preparing event received");
+});
+widgetApi.on("ready", () => {
+	log("widget API ready!");
+});
+
+/*
+widgetApi.on(MY_EVENT_NAME, (events) => {
+	log(`Received event: ${events}`);
+});
+*/
+
+log("Calling widget API start...");
+widgetApi.start();
+
+log("Main script done. Wait until you see \"widget API ready!\"");
+
+const msg_input = document.getElementById("msg_input");
+const btn_submit_input = document.getElementById("btn_submit_input");
+
+btn_submit_input.addEventListener('click', () => {
+	let msg_text = msg_input.value;
+
+	const evt_type = "m.room.message";
+	log(`Attempting to send text "${msg_text}" as event type ${evt_type}...`);
+	//widgetApi.transport.send(MY_EVENT_NAME, { msg: msg_text }).then((e) => {
+	//widgetApi.sendStateEvent(MY_EVENT_NAME, { msg: msg_text }).then((e) => {
+	widgetApi.sendRoomEvent(evt_type, msg_text, "").then((e) => {
+		log("Message sent");
+		msg_input.value = '';
+	}).catch((err) => {
+		console.error("Error sending message:", err);
+		log(`Error sending message: ${err}`);
+	});
+	
+});
+
+});
+
+</script>
